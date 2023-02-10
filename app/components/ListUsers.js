@@ -11,10 +11,6 @@ export default class ListUsers extends Component {
   }
 
   componentDidMount() {
-    // let username = "veselin";
-    // let password = "argh";
-    // const base64encodedData = Buffer.from(`${username}:${password}`).toString('base64');
-
     const base64encodedData = localStorage.getItem("Authorization");
     fetch(LIST_USERS_API, {
       method: "GET",
@@ -36,6 +32,7 @@ export default class ListUsers extends Component {
       return (
         <div>
           <div>
+        
             {this.state.listUsers &&
               this.state.listUsers.map((user, ind) => (
                 <div key={user.id}>
@@ -46,6 +43,7 @@ export default class ListUsers extends Component {
                   <br />
                 </div>
               ))}
+              
           </div>
         </div>
       );
