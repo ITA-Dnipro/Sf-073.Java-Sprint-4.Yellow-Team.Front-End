@@ -1,10 +1,12 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import HeaderLogin from "./HeaderLogin";
 import StateContext from "../StateContext";
+import { render } from "react-dom";
 
 function logOut() {
   localStorage.clear();
+  window.location.reload();
 }
 
 function Header(props) {
@@ -18,10 +20,13 @@ function Header(props) {
             Anti fraud system
           </Link>
         </h4>
-        <HeaderLogin />
-        <button onClick={logOut} className="btn btn-success btn-sm">
-          Sign Out
-        </button>
+        {localStorage.getItem("role") == null && <HeaderLogin />}
+        {localStorage.getItem("role") !== null && (
+          <NavLink to="/" className="btn btn-success btn-sm">
+            <div onClick={logOut}>Logout</div>
+          </NavLink>
+          // <button onClick={logOut} className="btn btn-success btn-sm">Sign Out</button>
+        )}
       </div>
     </header>
   );
