@@ -1,7 +1,7 @@
 import React from "react";
 import * as ReactDOM from "react-dom/client";
 import ListUsers from "./components/ListUsers";
-import SimpleLoginComponent from "./SimpleLoginComponent";
+import SimpleLoginComponent from "./components/SimpleLoginComponent";
 import { NavLink, Routes, Route, BrowserRouter } from "react-router-dom";
 import HomeGuest from "./components/HomeGuest";
 import Container from "./components/Container";
@@ -9,6 +9,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import About from "./components/About";
 import PrivateRoutes from "./utils/PrivateRoutes";
+import ChangeUserStatus from "./components/ChangeUserStatus";
 
 function ExampleComponent() {
   return (
@@ -17,6 +18,10 @@ function ExampleComponent() {
       <Routes>
         <Route element={<PrivateRoutes />}>
           <Route path="/users" element={<ListUsers />}></Route>
+          <Route
+            path="/change-user-status"
+            element={<ChangeUserStatus />}
+          ></Route>
         </Route>
 
         <Route path="" element={<HomeGuest />}></Route>

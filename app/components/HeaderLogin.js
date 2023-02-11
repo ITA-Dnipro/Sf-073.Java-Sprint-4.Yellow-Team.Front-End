@@ -9,7 +9,7 @@ function HeaderLogin(props) {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
   const navigate = useNavigate();
-  const [role,setRole] =  useState();
+  const [role, setRole] = useState();
   // async function handleSubmit(e) {
   //   e.preventDefault();
   //   try {
