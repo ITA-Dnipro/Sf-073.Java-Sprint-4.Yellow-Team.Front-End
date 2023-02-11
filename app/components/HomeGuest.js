@@ -13,7 +13,7 @@ function HomeGuest() {
   function handleSubmit(e) {
     e.preventDefault();
     try {
-      RegisterService.register();
+      RegisterService.register(name,username,password);
       console.log("User was successfully created.");
       navigate("/login");
     } catch (e) {

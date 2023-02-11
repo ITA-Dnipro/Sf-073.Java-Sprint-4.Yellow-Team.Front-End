@@ -9,6 +9,7 @@ function HeaderLogin(props) {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
   const navigate = useNavigate();
+  const [role,setRole] =  useState();
   // async function handleSubmit(e) {
   //   e.preventDefault();
   //   try {
@@ -28,8 +29,7 @@ function HeaderLogin(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    LoginService.login(username,password);
-    navigate("/users");
+    LoginService.login(username, password);
   };
 
   return (

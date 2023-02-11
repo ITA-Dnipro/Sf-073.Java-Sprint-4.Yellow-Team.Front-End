@@ -8,17 +8,21 @@ import Container from "./components/Container";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import About from "./components/About";
+import PrivateRoutes from "./utils/PrivateRoutes";
 
 function ExampleComponent() {
   return (
     <>
       <Header />
       <Routes>
+        <Route element={<PrivateRoutes />}>
+          <Route path="/users" element={<ListUsers />}></Route>
+        </Route>
+
         <Route path="" element={<HomeGuest />}></Route>
         {/* <Route path="" element={}></Route> */}
         <Route path="" element={<Container />}></Route>
-        <Route path="users" element={<ListUsers />}></Route>
-        <Route path="login" element={<SimpleLoginComponent />}></Route>
+        <Route path="/login" element={<SimpleLoginComponent />}></Route>
         <Route path="about-us" element={<About />}></Route>
       </Routes>
       <Footer />
