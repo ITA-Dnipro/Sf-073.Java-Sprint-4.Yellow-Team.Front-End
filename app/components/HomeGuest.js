@@ -1,18 +1,21 @@
 import React, { useState } from "react";
 import Page from "./Page";
-import Axios from "axios";
+import register from "../services/RegisterService";
 import RegisterService from "../services/RegisterService";
+import { Link, Routes, Route, useNavigate } from "react-router-dom";
 
 function HomeGuest() {
   const [name, setName] = useState();
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
+  const navigate = useNavigate();
 
-  async function handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
     try {
-        RegisterService.register(e.name,e.username,e.password)
+      RegisterService.register();
       console.log("User was successfully created.");
+      navigate("/login");
     } catch (e) {
       console.log("There was an error.");
     }

@@ -13,9 +13,6 @@ function ExampleComponent() {
   return (
     <>
       <Header />
-      {/* <SimpleLoginComponent />
-      <ListUsers /> */}
-      {/* <Route path="/" element={<HomePage />}></Route> */}
       <Routes>
         <Route path="" element={<HomeGuest />}></Route>
         {/* <Route path="" element={}></Route> */}
