@@ -1,10 +1,14 @@
-import React, { useState, useContext } from "react"
-import { Link } from "react-router-dom"
-import HeaderLogin from "./HeaderLogin"
-import StateContext from "../StateContext"
+import React, { useState, useContext } from "react";
+import { Link } from "react-router-dom";
+import HeaderLogin from "./HeaderLogin";
+import StateContext from "../StateContext";
+
+function logOut() {
+  localStorage.clear();
+}
 
 function Header(props) {
-  const appState = useContext(StateContext)
+  const appState = useContext(StateContext);
 
   return (
     <header className="header-bar bg-warning mb-3">
@@ -15,9 +19,12 @@ function Header(props) {
           </Link>
         </h4>
         <HeaderLogin />
+        <button onClick={logOut} className="btn btn-success btn-sm">
+          Sign Out
+        </button>
       </div>
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;
