@@ -1,25 +1,19 @@
 import React, { useState } from "react";
 import Page from "./Page";
 import Axios from "axios";
+import RegisterService from "../services/RegisterService";
 
 function HomeGuest() {
-  const [username, setUsername] = useState();
   const [name, setName] = useState();
+  const [username, setUsername] = useState();
   const [password, setPassword] = useState();
 
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      await Axios.post("http://localhost:28852/api/auth/user", {
-        name,
-        username,
-        password,
-      });
-      alert("User was successfully created.");
-
+        RegisterService.register(e.name,e.username,e.password)
       console.log("User was successfully created.");
     } catch (e) {
-      alert("There is an error while creating user!");
       console.log("There was an error.");
     }
   }
