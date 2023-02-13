@@ -10,6 +10,8 @@ import Footer from "./components/Footer";
 import About from "./components/About";
 import PrivateRoutes from "./utils/PrivateRoutes";
 import ChangeUserStatus from "./components/ChangeUserStatus";
+import AdminBar from "./components/AdminBar";
+import ChangeUserRole from "./components/ChangeUserRole";
 
 function ExampleComponent() {
   return (
@@ -18,14 +20,12 @@ function ExampleComponent() {
       <Routes>
         <Route element={<PrivateRoutes />}>
           <Route path="/users" element={<ListUsers />}></Route>
-          <Route
-            path="/change-user-status"
-            element={<ChangeUserStatus />}
-          ></Route>
+          <Route path="/change-user-status" element={<ChangeUserStatus />}></Route>
+          <Route path="/change-user-role" element={<ChangeUserRole />}></Route>
+          <Route path="/admin" element={<AdminBar />}></Route>
         </Route>
 
         <Route path="" element={<HomeGuest />}></Route>
-        {/* <Route path="" element={}></Route> */}
         <Route path="" element={<Container />}></Route>
         <Route path="/login" element={<SimpleLoginComponent />}></Route>
         <Route path="about-us" element={<About />}></Route>
