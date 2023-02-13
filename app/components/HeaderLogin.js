@@ -1,31 +1,11 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Link, Routes, Route, useNavigate } from "react-router-dom";
-import Axios from "axios";
 import DispatchContext from "../DispatchContext";
 import LoginService from "../services/LoginService";
 
-function HeaderLogin(props) {
+function HeaderLogin() {
   const appDispatch = useContext(DispatchContext);
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
-  const navigate = useNavigate();
-  const [role, setRole] = useState();
-  // async function handleSubmit(e) {
-  //   e.preventDefault();
-  //   try {
-  //     const response = await Axios.post("/api/auth/login", {
-  //       username,
-  //       password,
-  //     });
-  //     if (response.data) {
-  //       appDispatch({ type: "login", data: response.data });
-  //     } else {
-  //       console.log("Incorrect username / password.");
-  //     }
-  //   } catch (e) {
-  //     console.log("There was a problem.");
-  //   }
-  // }
 
   const handleSubmit = (event) => {
     event.preventDefault();
