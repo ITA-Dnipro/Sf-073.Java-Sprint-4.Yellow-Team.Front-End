@@ -14,6 +14,7 @@ import AdminBar from "./components/AdminBar";
 import ChangeUserRole from "./components/ChangeUserRole";
 import SuspiciosIP from "./components/AddSuspiciousIP";
 import ListSuspiciousIP from "./components/ListSuspiciousIP";
+import DeleteIp from "./components/DeleteIp";
 function ExampleComponent() {
   return (
     <>
@@ -26,6 +27,7 @@ function ExampleComponent() {
           <Route path="/admin" element={<AdminBar />}></Route>
           <Route path="/add-ip" element={<SuspiciosIP />}></Route>
           <Route path="/list-ip" element={<ListSuspiciousIP />}></Route>
+          <Route path="/delete-ip" element={<DeleteIp />}></Route>
         </Route>
 
         <Route path="" element={<HomeGuest />}></Route>
