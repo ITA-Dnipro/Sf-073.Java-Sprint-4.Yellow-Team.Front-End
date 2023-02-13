@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link , useNavigate } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Container from "react-bootstrap/Container";
@@ -78,24 +78,6 @@ export default class SupportBar extends Component {
           </div>
         </nav>
       </>
-    );
-  }
-}
-
-class Submenu extends React.Component {
-  render() {
-    return (
-      <ul className="nav__submenu">
-        <li className="nav__submenu-item ">
-          <a>Our Company</a>
-        </li>
-        <li className="nav__submenu-item ">
-          <a>Our Team</a>
-        </li>
-        <li className="nav__submenu-item ">
-          <a>Our Portfolio</a>
-        </li>
-      </ul>
     );
   }
 }
