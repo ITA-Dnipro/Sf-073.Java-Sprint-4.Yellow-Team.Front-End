@@ -5,13 +5,11 @@ import axios from "axios";
 const LIST_USERS_ACCESS_API = "http://localhost:28852/api/auth/list-access";
 
 export default class ChangeUserStatus extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
       listUsersAccess: [],
     };
-    
   }
 
   componentDidMount() {
@@ -32,7 +30,10 @@ export default class ChangeUserStatus extends Component {
   }
 
   changeStatus(username, access) {
-    const jsonBody = { username: username, operation: access=="LOCK"?"UNLOCK":"LOCK" };
+    const jsonBody = {
+      username: username,
+      operation: access == "LOCK" ? "UNLOCK" : "LOCK",
+    };
     const base64encodedData = localStorage.getItem("Authorization");
     return axios.put("http://localhost:28852/api/auth/access", jsonBody, {
       headers: {
@@ -49,15 +50,9 @@ export default class ChangeUserStatus extends Component {
           <div>
             {this.state.listUsersAccess &&
               this.state.listUsersAccess.map((user, ind) => (
-                <div key={user.username}>
-                  Username: {user.username} Role: {user.access + "ED"}
-                  <button
-                    type="submit"
-                    onClick={() =>
-                      this.changeStatus(user.username, user.access)
-                    }
-                    className="btn btn-success btn-sm"
-                  >
+                <div className="containers" key={user.username}>
+                  Username: {user.username} Status: {user.access + "ED"}
+                  <button className="btn btn-success btn-sm" type="submit" onClick={() => this.changeStatus(user.username, user.access)}>
                     Change Status
                   </button>
                   <br></br>
