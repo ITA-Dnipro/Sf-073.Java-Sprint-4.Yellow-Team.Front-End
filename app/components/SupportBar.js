@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { Component } from "react"
+import { Link, useNavigate } from "react-router-dom"
 
 export default class SupportBar extends Component {
   render() {
@@ -29,6 +29,6 @@ export default class SupportBar extends Component {
           </nav>
         </div>
       </nav>
-    );
+    )
   }
 }

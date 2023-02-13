@@ -1,18 +1,22 @@
-import React from "react";
-import * as ReactDOM from "react-dom/client";
-import ListUsers from "./components/ListUsers";
-import SimpleLoginComponent from "./components/SimpleLoginComponent";
-import { NavLink, Routes, Route, BrowserRouter } from "react-router-dom";
-import HomeGuest from "./components/HomeGuest";
-import Container from "./components/Container";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import About from "./components/About";
-import PrivateRoutes from "./utils/PrivateRoutes";
-import ChangeUserStatus from "./components/ChangeUserStatus";
-import AdminBar from "./components/AdminBar";
-import ChangeUserRole from "./components/ChangeUserRole";
-import SuspiciosIP from "./components/SuspiciosIP";
+import React from "react"
+import * as ReactDOM from "react-dom/client"
+import ListUsers from "./components/ListUsers"
+import SimpleLoginComponent from "./components/SimpleLoginComponent"
+import { NavLink, Routes, Route, BrowserRouter } from "react-router-dom"
+import HomeGuest from "./components/HomeGuest"
+import Container from "./components/Container"
+import Header from "./components/Header"
+import Footer from "./components/Footer"
+import About from "./components/About"
+import PrivateRoutes from "./utils/PrivateRoutes"
+import ChangeUserStatus from "./components/ChangeUserStatus"
+import AdminBar from "./components/AdminBar"
+import ChangeUserRole from "./components/ChangeUserRole"
+import SuspiciosIP from "./components/SuspiciosIP"
+import Transaction from "./components/Transaction"
+import TransactionFeedback from "./components/TransactionFeedback"
+import TransactionHistory from "./components/TransactionHistory"
+import TransactionHistoryByCard from "./components/TransactionHistoryByCard"
 
 function ExampleComponent() {
   return (
@@ -24,6 +28,10 @@ function ExampleComponent() {
           <Route path="/change-user-status" element={<ChangeUserStatus />}></Route>
           <Route path="/change-user-role" element={<ChangeUserRole />}></Route>
           <Route path="/admin" element={<AdminBar />}></Route>
+          <Route path="/transaction" element={<Transaction />}></Route>
+          <Route path="/transaction-feedback" element={<TransactionFeedback />}></Route>
+          <Route path="/transaction-history" element={<TransactionHistory />}></Route>
+          <Route path="/transaction-history-by-card" element={<TransactionHistoryByCard />}></Route>
           <Route path="/add-ip" element={<SuspiciosIP />}></Route>
         </Route>
 
@@ -34,17 +42,17 @@ function ExampleComponent() {
       </Routes>
       <Footer />
     </>
-  );
+  )
 }
 
-const root = ReactDOM.createRoot(document.querySelector("#app"));
+const root = ReactDOM.createRoot(document.querySelector("#app"))
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <ExampleComponent />
     </BrowserRouter>
   </React.StrictMode>
-);
+)
 if (module.hot) {
-  module.hot.accept();
+  module.hot.accept()
 }
