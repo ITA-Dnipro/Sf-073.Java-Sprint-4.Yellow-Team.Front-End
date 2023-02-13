@@ -24,8 +24,8 @@ function ExampleComponent() {
           <Route path="/change-user-status" element={<ChangeUserStatus />}></Route>
           <Route path="/change-user-role" element={<ChangeUserRole />}></Route>
           <Route path="/admin" element={<AdminBar />}></Route>
-          <Route path="/add-ip" element={<ListSuspiciousIP />}></Route>
-          <Route path="/List-ip" element={<SuspiciosIP />}></Route>
+          <Route path="/add-ip" element={<SuspiciosIP />}></Route>
+          <Route path="/list-ip" element={<ListSuspiciousIP />}></Route>
         </Route>
 
         <Route path="" element={<HomeGuest />}></Route>

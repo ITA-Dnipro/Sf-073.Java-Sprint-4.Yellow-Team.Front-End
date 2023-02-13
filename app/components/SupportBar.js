@@ -16,6 +16,9 @@ export default class SupportBar extends Component {
                   <Link to="add-ip">Add Suspicious IP</Link>
                 </li>
                 <li>
+                  <Link to="list-ip">List Suspicious IP</Link>
+                </li>
+                <li>
                   <Link to="add-stolen-card">Add Stolen Card</Link>
                 </li>
                 <li>
