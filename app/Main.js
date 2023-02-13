@@ -12,8 +12,8 @@ import PrivateRoutes from "./utils/PrivateRoutes";
 import ChangeUserStatus from "./components/ChangeUserStatus";
 import AdminBar from "./components/AdminBar";
 import ChangeUserRole from "./components/ChangeUserRole";
-import SuspiciosIP from "./components/SuspiciosIP";
-
+import SuspiciosIP from "./components/AddSuspiciousIP";
+import ListSuspiciousIP from "./components/ListSuspiciousIP";
 function ExampleComponent() {
   return (
     <>
@@ -24,7 +24,8 @@ function ExampleComponent() {
           <Route path="/change-user-status" element={<ChangeUserStatus />}></Route>
           <Route path="/change-user-role" element={<ChangeUserRole />}></Route>
           <Route path="/admin" element={<AdminBar />}></Route>
-          <Route path="/add-ip" element={<SuspiciosIP />}></Route>
+          <Route path="/add-ip" element={<ListSuspiciousIP />}></Route>
+          <Route path="/List-ip" element={<SuspiciosIP />}></Route>
         </Route>
 
         <Route path="" element={<HomeGuest />}></Route>
