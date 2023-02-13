@@ -31,7 +31,7 @@ export default class ListUsers extends Component {
     if (this.state.listUsers[0] != null) {
       return (
         <div>
-          <div>
+          <div className="container">
         
             {this.state.listUsers &&
               this.state.listUsers.map((user, ind) => (
