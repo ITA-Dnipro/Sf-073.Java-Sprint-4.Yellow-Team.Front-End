@@ -1,18 +1,20 @@
-import React, { useState, useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
-import HeaderLogin from "./HeaderLogin";
-import StateContext from "../StateContext";
-import { render } from "react-dom";
-import AdminBar from "./AdminBar";
-import SupportBar from "./SupportBar";
+import React, { useState, useContext } from "react"
+import { Link, NavLink } from "react-router-dom"
+import HeaderLogin from "./HeaderLogin"
+import StateContext from "../StateContext"
+import { render } from "react-dom"
+import AdminBar from "./AdminBar"
+import SupportBar from "./SupportBar"
+import TransactionBar from "./TransactionBar"
+import HeaderLoginAuthorizated from "./HeaderLoginAuthorizated"
 
 function logOut() {
-  localStorage.clear();
-  window.location.reload();
+  localStorage.clear()
+  window.location.reload()
 }
 
 function Header(props) {
-  const appState = useContext(StateContext);
+  const appState = useContext(StateContext)
 
   return (
     <header className="header-bar bg-warning mb-3">
@@ -21,6 +23,7 @@ function Header(props) {
           <Link to="/" className="text-white">
             Anti fraud system
           </Link>
+          {localStorage.getItem("role") != null && <div>Welcome {localStorage.getItem("username")}!</div>}
         </h4>
         {localStorage.getItem("role") == null && <HeaderLogin />}
 
@@ -28,15 +31,16 @@ function Header(props) {
 
         {localStorage.getItem("role") === "SUPPORT" && <SupportBar />}
 
+        {localStorage.getItem("role") === "MERCHANT" && <TransactionBar />}
+
         {localStorage.getItem("role") !== null && (
           <NavLink to="/" className="btn btn-success btn-sm">
             <div onClick={logOut}>Logout</div>
           </NavLink>
-          // <button onClick={logOut} className="btn btn-success btn-sm">Sign Out</button>
         )}
       </div>
     </header>
-  );
+  )
 }
 
-export default Header;
+export default Header
