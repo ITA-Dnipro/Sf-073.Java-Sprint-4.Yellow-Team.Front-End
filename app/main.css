@@ -31,7 +31,7 @@ body {
   transition: 0.5s;
 }
 .mainnav ul.header li:hover{
-  font-size: 20px;
+  font-size: 18px;
 }
 .mainnav ul.header {
   background-color: #ffc107;
@@ -47,7 +47,8 @@ body {
   display: inline-block;
 }
 .mainnav ul.header li a:hover{
-  color: black;
+  font-weight: bold;
+  color: gray;
 }
 a.dropdown-item {
   color: black !important;
