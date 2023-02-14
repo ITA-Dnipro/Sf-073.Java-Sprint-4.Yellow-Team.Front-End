@@ -28,6 +28,10 @@ body {
   display: inline;
   list-style-type: none;
   margin: 0;
+  transition: 0.5s;
+}
+.mainnav ul.header li:hover{
+  font-size: 18px;
 }
 .mainnav ul.header {
   background-color: #ffc107;
@@ -41,6 +45,10 @@ body {
   padding-right: 20px;
   padding-top: 10px;
   display: inline-block;
+}
+.mainnav ul.header li a:hover{
+  font-weight: bold;
+  color: gray;
 }
 a.dropdown-item {
   color: black !important;
