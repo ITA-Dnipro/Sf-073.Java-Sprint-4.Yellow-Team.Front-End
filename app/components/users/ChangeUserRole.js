@@ -55,25 +55,65 @@ function ChangeUserRole() {
       });
   }, [change]);
 
+  // return (
+  //   <div className="change-roles">
+  //     <div className="containers">
+  //       {listUsersRoles &&
+  //         listUsersRoles.map((user) => (
+  //           <div key={user.id}>
+  //             <div>Username: {user.username} </div>
+  //             <div> Role: {user.role} </div>
+  //             <select className="containers" name="role" id="users" value={roles.value} onChange={handleChange}>
+  //               {roles.map((roles) => (
+  //                 <option value={roles.value}>{roles.label}</option>
+  //               ))}
+  //             </select>
+  //             <button type="submit" onClick={() => changeRole(user.username, role)} className="btn btn-success btn-sm">
+  //               Change Role
+  //             </button>
+  //             <br></br>
+  //           </div>
+  //         ))}
+  //     </div>
+  //   </div>
+  // );
+
   return (
-    <div className="change-roles">
-      <div className="containers">
-        {listUsersRoles &&
-          listUsersRoles.map((user) => (
-            <div key={user.id}>
-              <div>Username: {user.username} </div>
-              <div> Role: {user.role} </div>
-              <select className="containers" name="role" id="users" value={roles.value} onChange={handleChange}>
-                {roles.map((roles) => (
-                  <option value={roles.value}>{roles.label}</option>
-                ))}
-              </select>
-              <button type="submit" onClick={() => changeRole(user.username, role)} className="btn btn-success btn-sm">
-                Change Role
-              </button>
-              <br></br>
-            </div>
-          ))}
+    <div className="maincontainer">
+      <div className="py-4">
+        <table className="table border shadow">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">USERNAME</th>
+              <th scope="col">ROLE</th>
+              <th scope="col">SELECTED ROLE</th>
+              <th scope="col">ACTION</th>
+            </tr>
+          </thead>
+          <tbody>
+            {listUsersRoles &&
+              listUsersRoles.map((user) => (
+                <tr>
+                  <th scope="row" key={user.id}>
+                    {user.id}
+                  </th>
+                  <td>{user.username}</td>
+                  <td>{user.role}</td>
+                  <td> <select className="containers" name="role" id="users" value={roles.value} onChange={handleChange}>
+                    {roles.map((roles) => (
+                      <option value={roles.value}>{roles.label}</option>
+                    ))}
+                  </select></td>
+                  <td>
+                    <button type="submit" onClick={() => changeRole(user.username, role)} className="btn btn-success btn-sm">
+                      Change Role
+                    </button>
+                  </td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
