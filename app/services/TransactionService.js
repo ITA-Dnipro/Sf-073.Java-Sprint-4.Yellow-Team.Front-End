@@ -2,7 +2,7 @@ import axios from "axios"
 
 const TRANSACTION_REST_API_URL = "http://localhost:28852/api/antifraud"
 
-class RegisterService {
+class TransactionService {
   registerTransaction(amount, ip, number, region, date) {
     const base64encodedData = localStorage.getItem("Authorization")
     const transactionData = {
@@ -18,5 +18,23 @@ class RegisterService {
       }
     })
   }
+
+  transactionHistoryRequest() {
+    const base64encodedData = localStorage.getItem("Authorization")
+    const transactionData = [
+      {
+        amount: amount,
+        ip: ip,
+        number: number,
+        region: region,
+        date: date
+      }
+    ]
+    axios.get(TRANSACTION_REST_API_URL + "/history", transactionData, {
+      headers: {
+        Authorization: base64encodedData
+      }
+    })
+  }
 }
-export default new RegisterService()
+export default new TransactionService()

@@ -2,6 +2,18 @@
   display: inline-block;
 }
 
+table {
+  width: 100%;
+  background: white;
+  color: rgb(8, 8, 8);
+  border-spacing: 1px;
+}
+td,
+th {
+  background: rgb(245, 241, 241);
+  padding: 5px;
+}
+
 body {
   font-family: "Public Sans", sans-serif;
 }
@@ -38,7 +50,7 @@ body {
   transition: 0.5s;
 }
 
-.mainnav ul.header li:hover{
+.mainnav ul.header li:hover {
   font-size: 18px;
 }
 
@@ -62,7 +74,7 @@ body {
   display: inline-block;
 }
 
-.mainnav ul.header li a:hover{
+.mainnav ul.header li a:hover {
   font-weight: bold;
   color: gray;
 }
