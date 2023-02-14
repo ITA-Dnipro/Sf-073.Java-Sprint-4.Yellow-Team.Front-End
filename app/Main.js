@@ -14,6 +14,9 @@ import ChangeUserRole from "./components/ChangeUserRole"
 import SuspiciosIP from "./components/AddSuspiciousIP"
 import ListSuspiciousIP from "./components/ListSuspiciousIP"
 import DeleteIp from "./components/DeleteIp"
+import AddCard from "./components/AddCard"
+import ListCards from "./components/ListCards"
+import DeleteCard from "./components/DeleteCard"
 import Transaction from "./components/Transaction"
 import TransactionFeedback from "./components/TransactionFeedback"
 import TransactionHistory from "./components/TransactionHistory"
@@ -36,6 +39,9 @@ function ExampleComponent() {
           <Route path="/add-ip" element={<SuspiciosIP />}></Route>
           <Route path="/list-ip" element={<ListSuspiciousIP />}></Route>
           <Route path="/delete-ip" element={<DeleteIp />}></Route>
+          <Route path="/add-stolen-card" element={<AddCard />}></Route>
+          <Route path="/list-stolen-cards" element={<ListCards />}></Route>
+          <Route path="/delete-stolen-card" element={<DeleteCard />}></Route>
         </Route>
 
         <Route path="" element={<HomeGuest />}></Route>

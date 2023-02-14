@@ -1,30 +1,30 @@
-import React, { Component } from "react";
-import { Buffer } from "buffer";
+import React, { Component } from "react"
+import { Buffer } from "buffer"
 
-const LIST_USERS_API = "http://localhost:28852/api/auth/list";
+const LIST_USERS_API = "http://localhost:28852/api/auth/list"
 export default class ListUsers extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      listUsers: [],
-    };
+      listUsers: []
+    }
   }
 
   componentDidMount() {
-    const base64encodedData = localStorage.getItem("Authorization");
+    const base64encodedData = localStorage.getItem("Authorization")
     fetch(LIST_USERS_API, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: base64encodedData,
-      },
+        Authorization: base64encodedData
+      }
     })
-      .then((res) => res.json())
-      .then((json) => {
+      .then(res => res.json())
+      .then(json => {
         this.setState({
-          listUsers: json,
-        });
-      });
+          listUsers: json
+        })
+      })
   }
 
   render() {
@@ -32,7 +32,6 @@ export default class ListUsers extends Component {
       return (
         <div>
           <div className="container">
-        
             {this.state.listUsers &&
               this.state.listUsers.map((user, ind) => (
                 <div key={user.id}>
@@ -43,10 +42,9 @@ export default class ListUsers extends Component {
                   <br />
                 </div>
               ))}
-              
           </div>
         </div>
-      );
+      )
     }
   }
 }
