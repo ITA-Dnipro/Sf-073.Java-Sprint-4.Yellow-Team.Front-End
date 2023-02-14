@@ -1,16 +1,13 @@
-import React, { Component } from "react"
-import { Buffer } from "buffer"
+import React, { useEffect, useState } from "react"
+import axios from "axios"
 
-const LIST_USERS_API = "http://localhost:28852/api/auth/list"
-export default class ListUsers extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      listUsers: []
-    }
-  }
+function ListUsers() {
+  const [listUsers, setListUsers] = useState()
+  const [change, setChange] = useState()
+  const LIST_USERS_API = "http://localhost:28852/api/auth/list"
+  const DELETE_USERS_API = "http://localhost:28852/api/auth/user/"
 
-  componentDidMount() {
+  useEffect(() => {
     const base64encodedData = localStorage.getItem("Authorization")
     fetch(LIST_USERS_API, {
       method: "GET",
@@ -21,30 +18,45 @@ export default class ListUsers extends Component {
     })
       .then(res => res.json())
       .then(json => {
-        this.setState({
-          listUsers: json
-        })
+        setListUsers(json)
       })
+  }, [change])
+
+  function handleDelete(username) {
+    const base64encodedData = localStorage.getItem("Authorization")
+    console.log(username)
+    axios
+      .delete(DELETE_USERS_API + username, {
+        headers: {
+          Authorization: base64encodedData
+        }
+      })
+      .then(setChange)
   }
 
-  render() {
-    if (this.state.listUsers[0] != null) {
-      return (
-        <div>
-          <div className="container">
-            {this.state.listUsers &&
-              this.state.listUsers.map((user, ind) => (
-                <div key={user.id}>
-                  {user.id}
-                  <br />
-                  {user.name}
-                  <br /> {user.username} <br /> {user.role} <br />
-                  <br />
-                </div>
-              ))}
-          </div>
-        </div>
-      )
-    }
-  }
+  return (
+    <div className="list-cards">
+      <div className="containers">
+        {listUsers &&
+          listUsers.map(user => (
+            <div key={user.id}>
+              id: {user.id}
+              <br />
+              name: {user.name}
+              <br />
+              username: {user.username}
+              <br />
+              role: {user.role}
+              <br />
+              <button type="submit" onClick={() => handleDelete(user.username)} className="btn btn-success btn-sm">
+                delete
+              </button>
+              <br></br>
+            </div>
+          ))}
+      </div>
+    </div>
+  )
 }
+
+export default ListUsers
