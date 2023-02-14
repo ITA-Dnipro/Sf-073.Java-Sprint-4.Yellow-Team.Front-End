@@ -1,33 +1,59 @@
 import React, { Component } from "react"
 import axios from "axios"
+
+const LIST_TRANSACTIONS_API = "http://localhost:28852/api/antifraud/history"
 class TransactionHistory extends Component {
-  handleSubmit = event => {
-    const base64encodedData = localStorage.getItem("Authorization")
-    event.preventDefault()
-    const ip = {
-      ip: this.state.ip
+  constructor(props) {
+    super(props)
+    this.state = {
+      listTransactions: []
     }
-    console.log(ip)
-    axios.post("http://localhost:28852/api/antifraud/transaction", ip, {
+  }
+
+  componentDidMount() {
+    const base64encodedData = localStorage.getItem("Authorization")
+    fetch(LIST_TRANSACTIONS_API, {
+      method: "GET",
       headers: {
+        "Content-Type": "application/json",
         Authorization: base64encodedData
       }
     })
+      .then(res => res.json())
+      .then(json => {
+        this.setState({
+          listTransactions: json
+        })
+      })
   }
-  handleChange = event => {
-    this.setState({ ip: event.target.value })
-  }
+
   render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          {" "}
-          Suspicious ip:
-          <input type="text" name="ip" onChange={this.handleChange} />
-        </label>
-        <button type="submit"> Add </button>
-      </form>
-    )
+    if (this.state.listTransactions[0] != null) {
+      return (
+        <div>
+          <div className="container">
+            {this.state.listTransactions.map(transaction => (
+              <div key={transaction.id}>
+                {transaction.transactionId}
+                <br />
+                {transaction.amount}
+                <br />
+                {transaction.number}
+                <br />
+                {transaction.region}
+                <br />
+                {transaction.date}
+                <br />
+                {transaction.result}
+                <br />
+                {transaction.feedback}
+                <br />
+              </div>
+            ))}
+          </div>
+        </div>
+      )
+    }
   }
 }
 export default TransactionHistory
