@@ -14,6 +14,13 @@ body {
   max-width: 732px;
 }
 
+.maincontainer {
+  height: 600px;
+  text-align: center;
+}
+.maincontainer h2 {
+  padding-top: 200px;
+}
 .header-search-icon {
   position: relative;
   top: 3px;
@@ -30,9 +37,11 @@ body {
   margin: 0;
   transition: 0.5s;
 }
+
 .mainnav ul.header li:hover{
   font-size: 18px;
 }
+
 .mainnav ul.header {
   background-color: #ffc107;
   padding: 0;
@@ -46,6 +55,7 @@ body {
   padding-top: 10px;
   display: inline-block;
 }
+
 .mainnav ul.header li a:hover{
   font-weight: bold;
   color: gray;
