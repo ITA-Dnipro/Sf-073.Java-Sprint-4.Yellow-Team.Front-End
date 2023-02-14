@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import axios from "axios";
-class SuspiciosIP extends Component {
+class DeleteIp extends Component {
+    
     handleSubmit = event => {
+        event.preventDefault();
+        const url = `http://localhost:28852/api/antifraud/suspicious-ip/+event.ip`;
         const base64encodedData = localStorage.getItem("Authorization");
         event.preventDefault();
         const ip = {
             ip: this.state.ip
         }
         console.log(ip)
-        axios.post('http://localhost:28852/api/antifraud/suspicious-ip', ip, {
+        axios.delete(`http://localhost:28852/api/antifraud/suspicious-ip/`+this.state.ip,{
             headers: {
                 Authorization: base64encodedData,
             },
@@ -21,12 +24,11 @@ class SuspiciosIP extends Component {
         return (
 
             <form onSubmit={this.handleSubmit}>
-                <label> Suspicious ip:
-                    <input type="text" name="ip" onChange={this.handleChange} />
-                </label>
-                <button type="submit"> Add </button>
+    
+                 <input type="text" name="ip" onChange={this.handleChange} />
+                <button type="submit" > DELETE </button>
             </form>
         );
     }
 }
-export default SuspiciosIP;
+export default DeleteIp;
