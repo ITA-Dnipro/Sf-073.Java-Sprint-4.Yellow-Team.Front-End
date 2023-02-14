@@ -6,7 +6,6 @@ import { render } from "react-dom"
 import AdminBar from "./AdminBar"
 import SupportBar from "./SupportBar"
 import TransactionBar from "./TransactionBar"
-import HeaderLoginAuthorizated from "./HeaderLoginAuthorizated"
 
 function logOut() {
   localStorage.clear()

@@ -16,8 +16,10 @@ function Transaction() {
     try {
       TransactionService.registerTransaction(amount, ip, number, region, date)
       console.log("Transaction was successfully created.")
-      navigate("/login")
+      alert("Transaction was successfully created.")
+      navigate("/")
     } catch (e) {
+      alert("There was an error.")
       console.log("There was an error.")
     }
   }

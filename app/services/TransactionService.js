@@ -12,6 +12,7 @@ class RegisterService {
       region: region,
       date: date
     }
+    console.log(transactionData)
     axios.post(TRANSACTION_REST_API_URL + "/transaction", transactionData, {
       headers: {
         Authorization: base64encodedData

@@ -21,6 +21,7 @@ import Transaction from "./components/Transaction"
 import TransactionFeedback from "./components/TransactionFeedback"
 import TransactionHistory from "./components/TransactionHistory"
 import TransactionHistoryByCard from "./components/TransactionHistoryByCard"
+import Home from "./components/Home"
 
 function ExampleComponent() {
   return (
@@ -42,6 +43,7 @@ function ExampleComponent() {
           <Route path="/add-stolen-card" element={<AddCard />}></Route>
           <Route path="/list-stolen-cards" element={<ListCards />}></Route>
           <Route path="/delete-stolen-card" element={<DeleteCard />}></Route>
+          <Route path="" element={<Home />}></Route>
         </Route>
 
         <Route path="" element={<HomeGuest />}></Route>
