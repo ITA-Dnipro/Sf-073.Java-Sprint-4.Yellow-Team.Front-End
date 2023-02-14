@@ -10,7 +10,7 @@ export default class TransactionBar extends Component {
             <div>
               <ul className="header">
                 <li>
-                  <Link to="transaction">Make new transaction</Link>
+                  <Link to="/transaction">Make new transaction</Link>
                 </li>
               </ul>
             </div>
