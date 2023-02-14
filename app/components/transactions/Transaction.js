@@ -54,7 +54,7 @@ function Transaction() {
         <label htmlFor="date-register" className="text-muted mb-1">
           <small>Date</small>
         </label>
-        <input onChange={e => setDate(e.target.value)} id="date-register" name="date" className="form-control" type="text" placeholder="Set a date in format yyyy-MM-ddTHH:mm:ss" autoComplete="off" />
+        <input onChange={e => setDate(e.target.value)} id="date-register" name="date" className="form-control" type="datetime-local" placeholder="Set a date in format yyyy-MM-ddTHH:mm:ss" autoComplete="off" />
       </div>
       <button type="submit" className="py-3 mt-4 btn btn-lg btn-success btn-block">
         Add transaction
