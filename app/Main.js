@@ -21,8 +21,7 @@ import Transaction from "./components/transactions/Transaction"
 import TransactionFeedback from "./components/transactions/TransactionFeedback"
 import TransactionHistory from "./components/transactions/TransactionHistory"
 import TransactionHistoryByCard from "./components/transactions/TransactionHistoryByCard"
-import PrivateRoutesAdmin from "./utils/PrivateRoutesAdmin"
-
+import DeleteUser from "./components/users/DeleteUser"
 
 
 function ExampleComponent() {
@@ -32,6 +31,10 @@ function ExampleComponent() {
       <Routes>
         <Route element={<PrivateRoutes />}>
           <Route path="/users" element={<ListUsers />}></Route>
+          <Route path="/change-user-status" element={<ChangeUserStatus />}></Route>
+          <Route path="/change-user-role" element={<ChangeUserRole />}></Route>
+          <Route path="/delete-user" element={<DeleteUser />}></Route>
+          <Route path="/admin" element={<AdminBar />}></Route>
           <Route path="/transaction" element={<Transaction />}></Route>
           <Route path="/transaction-feedback" element={<TransactionFeedback />}></Route>
           <Route path="/transaction-history" element={<TransactionHistory />}></Route>

@@ -1,16 +1,17 @@
 import React, { Component } from "react"
 import axios from "axios"
-class DeleteIp extends Component {
+
+const DELETE_USER_API = "http://localhost:28852/api/auth/user/"
+class DeleteUser extends Component {
   handleSubmit = event => {
     event.preventDefault()
-    const url = `http://localhost:28852/api/antifraud/suspicious-ip/+event.ip`
     const base64encodedData = localStorage.getItem("Authorization")
     event.preventDefault()
-    const ip = {
-      ip: this.state.ip
+    const user = {
+      user: this.state.user
     }
-    console.log(ip)
-    axios.delete(`http://localhost:28852/api/antifraud/suspicious-ip/` + this.state.ip, {
+    console.log(user)
+    axios.delete(DELETE_USER_API + this.state.user, {
       headers: {
         Authorization: base64encodedData
       }
@@ -19,17 +20,18 @@ class DeleteIp extends Component {
   }
 
   handleChange = event => {
-    this.setState({ ip: event.target.value })
+    this.setState({ user: event.target.value })
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <big>ip: </big>
-        <input type="text" name="ip" onChange={this.handleChange} />
+        <big>username: </big>
+        <input type="text" name="user" onChange={this.handleChange} />
         <button type="submit"> DELETE </button>
       </form>
     )
   }
 }
-export default DeleteIp
+
+export default DeleteUser
