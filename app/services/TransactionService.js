@@ -19,18 +19,15 @@ class TransactionService {
     })
   }
 
-  transactionHistoryRequest() {
+  addFeedback(id, feedback) {
     const base64encodedData = localStorage.getItem("Authorization")
     const transactionData = [
       {
-        amount: amount,
-        ip: ip,
-        number: number,
-        region: region,
-        date: date
+        id: id,
+        feedback: feedback
       }
     ]
-    axios.get(TRANSACTION_REST_API_URL + "/history", transactionData, {
+    axios.put(TRANSACTION_REST_API_URL + "/transaction", transactionData, {
       headers: {
         Authorization: base64encodedData
       }
