@@ -1,18 +1,21 @@
-import React from "react";
-import * as ReactDOM from "react-dom/client";
-import ListUsers from "./components/ListUsers";
-import SimpleLoginComponent from "./components/SimpleLoginComponent";
-import { NavLink, Routes, Route, BrowserRouter } from "react-router-dom";
-import HomeGuest from "./components/HomeGuest";
-import Container from "./components/Container";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import About from "./components/About";
-import PrivateRoutes from "./utils/PrivateRoutes";
-import ChangeUserStatus from "./components/ChangeUserStatus";
-import AdminBar from "./components/AdminBar";
-import ChangeUserRole from "./components/ChangeUserRole";
-import SuspiciosIP from "./components/SuspiciosIP";
+import React from "react"
+import * as ReactDOM from "react-dom/client"
+import ListUsers from "./components/ListUsers"
+import SimpleLoginComponent from "./components/SimpleLoginComponent"
+import { NavLink, Routes, Route, BrowserRouter } from "react-router-dom"
+import HomeGuest from "./components/HomeGuest"
+import Container from "./components/Container"
+import Header from "./components/Header"
+import Footer from "./components/Footer"
+import About from "./components/About"
+import PrivateRoutes from "./utils/PrivateRoutes"
+import ChangeUserStatus from "./components/ChangeUserStatus"
+import AdminBar from "./components/AdminBar"
+import ChangeUserRole from "./components/ChangeUserRole"
+import SuspiciosIP from "./components/SuspiciosIP"
+import AddCard from "./components/AddCard"
+import ListCards from "./components/ListCards"
+import DeleteCard from "./components/DeleteCard"
 
 function ExampleComponent() {
   return (
@@ -25,6 +28,9 @@ function ExampleComponent() {
           <Route path="/change-user-role" element={<ChangeUserRole />}></Route>
           <Route path="/admin" element={<AdminBar />}></Route>
           <Route path="/add-ip" element={<SuspiciosIP />}></Route>
+          <Route path="/add-stolen-card" element={<AddCard />}></Route>
+          <Route path="/cards" element={<ListCards />}></Route>
+          <Route path="/remove-card" element={<DeleteCard />}></Route>
         </Route>
 
         <Route path="" element={<HomeGuest />}></Route>
@@ -34,17 +40,17 @@ function ExampleComponent() {
       </Routes>
       <Footer />
     </>
-  );
+  )
 }
 
-const root = ReactDOM.createRoot(document.querySelector("#app"));
+const root = ReactDOM.createRoot(document.querySelector("#app"))
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <ExampleComponent />
     </BrowserRouter>
   </React.StrictMode>
-);
+)
 if (module.hot) {
-  module.hot.accept();
+  module.hot.accept()
 }
