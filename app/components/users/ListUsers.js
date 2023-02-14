@@ -21,7 +21,7 @@ function ListUsers() {
         setListUsers(json)
       })
   }, [change])
-       function handleDelete(username) {
+  function handleDelete(username) {
     const base64encodedData = localStorage.getItem("Authorization")
     console.log(username)
     axios
@@ -31,66 +31,46 @@ function ListUsers() {
         }
       })
       .then(setChange)
-      return (
-        <div className="maincontainer">
-          <div className="py-4">
-            <table className="table border shadow">
-              <thead>
-                <tr>
-                <th scope="col">ID</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Username</th>
-                  <th scope="col">Role</th>
-                </tr>
-              </thead>
-              <tbody>
-                {this.state.listUsers &&
-               this.state.listUsers.map((user) => (
-                  <tr>
-                    <th scope="row">
-                      {user.id}
-                    </th>
-                    <td>{user.name}</td>
-                    <td>
-                    {user.username}
-                    </td>
-                    <td>
-                    {user.role}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      );
-    }
 
   }
 
   return (
-    <div className="list-cards">
-      <div className="containers">
-        {listUsers &&
-          listUsers.map(user => (
-            <div key={user.id}>
-              id: {user.id}
-              <br />
-              name: {user.name}
-              <br />
-              username: {user.username}
-              <br />
-              role: {user.role}
-              <br />
-              <button type="submit" onClick={() => handleDelete(user.username)} className="btn btn-success btn-sm">
-                Delete user
-              </button>
-              <br></br>
-            </div>
-          ))}
+    <div className="maincontainer">
+      <div className="py-4">
+        <table className="table border shadow">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Username</th>
+              <th scope="col">Role</th>
+              <th scope="col">ACTION</th>
+            </tr>
+          </thead>
+          <tbody>
+            {listUsers &&
+              listUsers.map((user) => (
+                <tr>
+                  <th scope="row">
+                    {user.id}
+                  </th>
+                  <td>{user.name}</td>
+                  <td>
+                    {user.username}
+                  </td>
+                  <td>
+                    {user.role}
+                  </td>
+                  <td><button type="submit" onClick={() => handleDelete(user.username)} className="btn btn-danger btn-sm">
+                    Delete user
+                  </button></td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
       </div>
     </div>
-  )
+  );
 }
 
 export default ListUsers
