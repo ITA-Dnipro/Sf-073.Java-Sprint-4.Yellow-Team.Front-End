@@ -1,33 +1,66 @@
-import React, { Component } from "react"
+import React, { useState } from "react"
 import axios from "axios"
-class Transaction extends Component {
-  handleSubmit = event => {
-    const base64encodedData = localStorage.getItem("Authorization")
-    event.preventDefault()
-    const ip = {
-      ip: this.state.ip
+import TransactionService from "../../services/TransactionService"
+import { Link, Routes, Route, useNavigate } from "react-router-dom"
+
+function Transaction() {
+  const [amount, setAmount] = useState()
+  const [ip, setIP] = useState()
+  const [number, setNumber] = useState()
+  const [region, setRegion] = useState()
+  const [date, setDate] = useState()
+  const navigate = useNavigate()
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    try {
+      TransactionService.registerTransaction(amount, ip, number, region, date)
+      console.log("Transaction was successfully created.")
+      alert("Transaction was successfully created.")
+      navigate("/")
+    } catch (e) {
+      alert("There was an error.")
+      console.log("There was an error.")
     }
-    console.log(ip)
-    axios.post("http://localhost:28852/api/antifraud/transaction", ip, {
-      headers: {
-        Authorization: base64encodedData
-      }
-    })
   }
-  handleChange = event => {
-    this.setState({ ip: event.target.value })
-  }
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          {" "}
-          Suspicious ip:
-          <input type="text" name="ip" onChange={this.handleChange} />
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div className="form-group">
+        <label htmlFor="amount-register" className="text-muted mb-1">
+          <small>Amount</small>
         </label>
-        <button type="submit"> Add </button>
-      </form>
-    )
-  }
+        <input onChange={e => setAmount(e.target.value)} id="amount-register" name="amount" className="form-control" type="number" placeholder="Set an amount" autoComplete="off" />
+      </div>
+      <div className="form-group">
+        <label htmlFor="ip-register" className="text-muted mb-1">
+          <small>IP</small>
+        </label>
+        <input onChange={e => setIP(e.target.value)} id="ip-register" name="ip" className="form-control" type="text" placeholder="Set an IP address" autoComplete="off" />
+      </div>
+      <div className="form-group">
+        <label htmlFor="card-register" className="text-muted mb-1">
+          <small>Card number</small>
+        </label>
+        <input onChange={e => setNumber(e.target.value)} id="card-register" name="card" className="form-control" type="number" placeholder="Set an card number" autoComplete="off" />
+      </div>
+      <div className="form-group">
+        <label htmlFor="region-register" className="text-muted mb-1">
+          <small>Region</small>
+        </label>
+        <input onChange={e => setRegion(e.target.value)} id="region-register" name="region" className="form-control" type="text" placeholder="Set a region" autoComplete="off" />
+      </div>
+      <div className="form-group">
+        <label htmlFor="date-register" className="text-muted mb-1">
+          <small>Date</small>
+        </label>
+        <input onChange={e => setDate(e.target.value)} id="date-register" name="date" className="form-control" type="text" placeholder="Set a date in format yyyy-MM-ddTHH:mm:ss" autoComplete="off" />
+      </div>
+      <button type="submit" className="py-3 mt-4 btn btn-lg btn-success btn-block">
+        Add transaction
+      </button>
+    </form>
+  )
 }
+
 export default Transaction
