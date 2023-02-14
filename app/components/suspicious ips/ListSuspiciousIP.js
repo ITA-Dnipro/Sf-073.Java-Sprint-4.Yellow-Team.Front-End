@@ -1,51 +1,58 @@
-import React, { Component } from "react";
-import { Buffer } from "buffer";
+import React, { useEffect, useState } from "react"
+import axios from "axios"
 
-const LIST_IPS_API = "http://localhost:28852/api/antifraud/suspicious-ip";
-export default class ListSuspiciousIP extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      listIps: [],
-    };
-  }
+function ListSuspiciousIP() {
+  const [listIps, setListIps] = useState()
+  const [change, setChange] = useState()
+  const LIST_IPS_API = "http://localhost:28852/api/antifraud/suspicious-ip"
+  const DELETE_CARD_API = "http://localhost:28852/api/antifraud/suspicious-ip/"
 
-  componentDidMount() {
-    const base64encodedData = localStorage.getItem("Authorization");
+  useEffect(() => {
+    const base64encodedData = localStorage.getItem("Authorization")
     fetch(LIST_IPS_API, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: base64encodedData,
-      },
+        Authorization: base64encodedData
+      }
     })
-      .then((res) => res.json())
-      .then((json) => {
-        this.setState({
-            listIps: json,
-        });
-      });
+      .then(res => res.json())
+      .then(json => {
+        setListIps(json)
+      })
+  }, [change])
+
+  function handleDelete(ip) {
+    const base64encodedData = localStorage.getItem("Authorization")
+    console.log(ip)
+    axios
+      .delete(DELETE_CARD_API + ip, {
+        headers: {
+          Authorization: base64encodedData
+        }
+      })
+      .then(setChange)
   }
 
-  render() {
-    if (this.state.listIps[0] != null) {
-      return (
-        <div>
-          <div className="container">
-        
-            {this.state.listIps &&
-              this.state.listIps.map((ip) => (
-                <div key={ip.id}>
-                  {ip.id}
-                  <br />
-                  {ip.ip}
-                  <br />
-                </div>
-              ))}
-              
-          </div>
-        </div>
-      );
-    }
-  }
+  return (
+    <div className="list-ips">
+      <div className="containers">
+        {listIps &&
+          listIps.map(ip => (
+            <div key={ip.id}>
+              id: {ip.id}
+              <br />
+              ip: {ip.ip}
+              <br />
+              <button type="submit" onClick={() => handleDelete(ip.ip)} className="btn btn-success btn-sm">
+                delete
+              </button>
+              <br></br>
+            </div>
+          ))}
+      </div>
+    </div>
+  )
 }
+
+export default ListSuspiciousIP
