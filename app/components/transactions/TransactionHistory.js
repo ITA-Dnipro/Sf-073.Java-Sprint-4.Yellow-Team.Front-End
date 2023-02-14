@@ -1,29 +1,29 @@
-import React, { useEffect, useState } from "react"
-import axios from "axios"
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 function TransactionHistory() {
-  const [listTransactions, setListTransactions] = useState()
-  const [change, setChange] = useState()
-  const LIST_TRANSACTIONS_API = "http://localhost:28852/api/antifraud/history"
+  const [listTransactions, setListTransactions] = useState();
+  const [change, setChange] = useState();
+  const LIST_TRANSACTIONS_API = "http://localhost:28852/api/antifraud/history";
 
   useEffect(() => {
-    const base64encodedData = localStorage.getItem("Authorization")
+    const base64encodedData = localStorage.getItem("Authorization");
     fetch(LIST_TRANSACTIONS_API, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: base64encodedData
-      }
+        Authorization: base64encodedData,
+      },
     })
-      .then(res => res.json())
-      .then(json => {
-        setListTransactions(json)
-      })
-  }, [change])
+      .then((res) => res.json())
+      .then((json) => {
+        setListTransactions(json);
+      });
+  }, [change]);
 
   return (
     <div className="list-transactions">
-      <div className="containers">
+      <div className="container">
         <table className="table border shadow">
           <thead>
             <tr>
@@ -37,7 +37,7 @@ function TransactionHistory() {
           </thead>
           <tbody>
             {listTransactions &&
-              listTransactions.map(transaction => (
+              listTransactions.map((transaction) => (
                 <tr>
                   <th scope="row" key={transaction.transactionId}>
                     {transaction.transactionId}
@@ -53,6 +53,6 @@ function TransactionHistory() {
         </table>
       </div>
     </div>
-  )
+  );
 }
-export default TransactionHistory
+export default TransactionHistory;
