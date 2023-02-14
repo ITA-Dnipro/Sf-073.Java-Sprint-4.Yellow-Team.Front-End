@@ -32,7 +32,7 @@ function ChangeUserRole() {
           Authorization: base64encodedData,
         },
       })
-      .then(setChange)
+      .then(setChange);
   }
   function handleChange(e) {
     console.log("Role Selected!!!");
@@ -54,14 +54,15 @@ function ChangeUserRole() {
         setListUsersRoles(json);
       });
   }, [change]);
- 
+
   return (
     <div className="change-roles">
       <div className="containers">
         {listUsersRoles &&
           listUsersRoles.map((user) => (
             <div key={user.id}>
-              Username: {user.username} Role: {user.role}
+              <div>Username: {user.username} </div>
+              <div> Role: {user.role} </div>
               <select className="containers" name="role" id="users" value={roles.value} onChange={handleChange}>
                 {roles.map((roles) => (
                   <option value={roles.value}>{roles.label}</option>

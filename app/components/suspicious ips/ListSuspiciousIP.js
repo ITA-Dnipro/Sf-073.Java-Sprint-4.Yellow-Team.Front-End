@@ -68,6 +68,11 @@ function ListSuspiciousIP() {
           <tbody>
             {listIps &&
            listIps.map((ip) => (
+           <div key={ip.id}>
+              ID: {ip.id}
+              <br />
+              IP: {ip.ip}
+              <br />
                <tr>
                 <th scope="row">
                   {ip.id}
@@ -80,6 +85,7 @@ function ListSuspiciousIP() {
                 </td>
               </tr>
             ))}
+            </div>
           </tbody>
         </table>
       </div>

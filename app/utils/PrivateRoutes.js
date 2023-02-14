@@ -1,13 +1,8 @@
 import React, { useState } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 
-const PrivateRoutes = () => {
-  let role1 = localStorage.getItem("role");
-  // if(!(localStorage.getItem("role")=="ADMINISTRATOR")){
-  //   window.location.href = '../'
-  // }
-  // else{
-
-  return role1 == "SUPPORT" || role1 == "ADMINISTRATOR"? <Outlet /> : <Navigate to="/login" />;
+const PrivateRoutes = (role) => {
+  let localStorageRole = localStorage.getItem("role");
+  return localStorageRole === role.role || localStorageRole === role.role2 ? <Outlet /> : <Navigate to="/unauthorized" />;
 };
 export default PrivateRoutes;

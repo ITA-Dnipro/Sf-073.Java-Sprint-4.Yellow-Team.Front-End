@@ -49,18 +49,24 @@ function ListCards() {
           <tbody>
             {listCards &&
            listCards.map((card) => (
+            <div key={card.id}>
+              id: {card.id}
+              <br />
+              Number: {card.number}
+              <br />
               <tr>
                 <th scope="row">
                   {card.id}
                 </th>
                 <td>{card.number}</td>
                 <td>
-                <button type="submit" onClick={() => handleDelete(ip.ip)} className="btn btn-danger mx-2" id = "delButton">
+                <button type="submit" onClick={() => handleDelete(card.number)} className="btn btn-danger mx-2" id = "delButton">
                     Delete
                   </button>
                 </td>
               </tr>
             ))}
+            </div>
           </tbody>
         </table>
       </div>
