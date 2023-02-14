@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { Component } from "react"
+import { Link, useNavigate } from "react-router-dom"
 
 export default class AdminBar extends Component {
   render() {
@@ -18,11 +18,14 @@ export default class AdminBar extends Component {
                 <li>
                   <Link to="change-user-role">Change user role</Link>
                 </li>
+                <li>
+                  <Link to="delete-user">Delete user</Link>
+                </li>
               </ul>
             </div>
           </nav>
         </div>
       </nav>
-    );
+    )
   }
 }

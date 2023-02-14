@@ -15,10 +15,13 @@ class AddCard extends Component {
         Authorization: base64encodedData
       }
     })
+    event.target.reset()
   }
+
   handleChange = event => {
     this.setState({ card: event.target.value })
   }
+
   render() {
     return (
       <form onSubmit={this.handleSubmit}>

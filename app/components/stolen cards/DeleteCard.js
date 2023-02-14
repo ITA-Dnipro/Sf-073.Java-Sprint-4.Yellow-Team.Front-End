@@ -16,13 +16,17 @@ class DeleteCard extends Component {
         Authorization: base64encodedData
       }
     })
+    event.target.reset()
   }
+
   handleChange = event => {
     this.setState({ card: event.target.value })
   }
+
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
+        <big>number: </big>
         <input type="text" name="card" onChange={this.handleChange} />
         <button type="submit"> DELETE </button>
       </form>
