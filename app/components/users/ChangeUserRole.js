@@ -54,7 +54,7 @@ function ChangeUserRole() {
         setListUsersRoles(json);
       });
   }, [change]);
-
+ 
   return (
     <div className="change-roles">
       <div className="containers">
@@ -77,5 +77,4 @@ function ChangeUserRole() {
     </div>
   );
 }
-
 export default ChangeUserRole;

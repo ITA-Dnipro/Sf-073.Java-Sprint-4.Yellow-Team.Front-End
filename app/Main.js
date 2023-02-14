@@ -21,6 +21,7 @@ import Transaction from "./components/transactions/Transaction"
 import TransactionFeedback from "./components/transactions/TransactionFeedback"
 import TransactionHistory from "./components/transactions/TransactionHistory"
 import TransactionHistoryByCard from "./components/transactions/TransactionHistoryByCard"
+import PrivateRoutesAdmin from "./utils/PrivateRoutesAdmin"
 
 
 
@@ -31,9 +32,6 @@ function ExampleComponent() {
       <Routes>
         <Route element={<PrivateRoutes />}>
           <Route path="/users" element={<ListUsers />}></Route>
-          <Route path="/change-user-status" element={<ChangeUserStatus />}></Route>
-          <Route path="/change-user-role" element={<ChangeUserRole />}></Route>
-          <Route path="/admin" element={<AdminBar />}></Route>
           <Route path="/transaction" element={<Transaction />}></Route>
           <Route path="/transaction-feedback" element={<TransactionFeedback />}></Route>
           <Route path="/transaction-history" element={<TransactionHistory />}></Route>
@@ -45,9 +43,16 @@ function ExampleComponent() {
           <Route path="/list-stolen-cards" element={<ListCards />}></Route>
           <Route path="/delete-stolen-card" element={<DeleteCard />}></Route>
         </Route>
+        
         <Route path="" element={<HomeGuest />}></Route>
         <Route path="/login" element={<SimpleLoginComponent />}></Route>
         <Route path="about-us" element={<About />}></Route>
+
+        <Route element={<PrivateRoutesAdmin />}>
+          <Route path="/change-user-status" element={<ChangeUserStatus />}></Route>
+          <Route path="/change-user-role" element={<ChangeUserRole />}></Route>
+          <Route path="/admin" element={<AdminBar />}></Route>
+        </Route>
       </Routes>
       <Footer />
     </>
