@@ -3,9 +3,16 @@ import { Link, NavLink } from "react-router-dom"
 import HeaderLogin from "./HeaderLogin"
 import StateContext from "../StateContext"
 import { render } from "react-dom"
+<<<<<<< HEAD
 import AdminBar from "./AdminBar"
 import SupportBar from "./SupportBar"
 import TransactionBar from "./TransactionBar"
+=======
+import AdminBar from "./bars/AdminBar"
+import SupportBar from "./bars/SupportBar"
+import TransactionBar from "./bars/TransactionBar"
+import HeaderLoginAuthorizated from "./HeaderLoginAuthorizated"
+>>>>>>> origin/main
 
 function logOut() {
   localStorage.clear()

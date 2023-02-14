@@ -5,7 +5,6 @@ const DELETE_CARD_API = "http://localhost:28852/api/antifraud/stolencard/"
 class DeleteCard extends Component {
   handleSubmit = event => {
     event.preventDefault()
-    const url = DELETE_CARD_API + event.card
     const base64encodedData = localStorage.getItem("Authorization")
     event.preventDefault()
     const card = {
