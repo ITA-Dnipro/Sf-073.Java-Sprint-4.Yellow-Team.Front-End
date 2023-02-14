@@ -22,6 +22,7 @@ import TransactionFeedback from "./components/transactions/TransactionFeedback";
 import TransactionHistory from "./components/transactions/TransactionHistory";
 import TransactionHistoryByCard from "./components/transactions/TransactionHistoryByCard";
 import Unauthorized from "./components/Unauthorized";
+import DeleteUser from "./components/users/DeleteUser"
 
 function ExampleComponent() {
   return (
@@ -50,7 +51,6 @@ function ExampleComponent() {
         <Route element={<PrivateRoutes role="MERCHANT" />}>
           <Route path="/transaction" element={<Transaction />}></Route>
         </Route>
-
         <Route path="" element={<HomeGuest />}></Route>
         <Route path="/login" element={<SimpleLoginComponent />}></Route>
         <Route path="about-us" element={<About />}></Route>
