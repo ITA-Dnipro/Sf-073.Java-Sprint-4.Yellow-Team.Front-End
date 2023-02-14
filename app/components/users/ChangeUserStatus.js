@@ -34,7 +34,7 @@ function ChangeUserStatus() {
         setListUsersAccess(json)
       });
     },[change]);
-
+  
   return (
     <div className="body-content">
         {listUsersAccess &&
@@ -50,5 +50,4 @@ function ChangeUserStatus() {
     </div>
   );
 };
-
 export default ChangeUserStatus;
