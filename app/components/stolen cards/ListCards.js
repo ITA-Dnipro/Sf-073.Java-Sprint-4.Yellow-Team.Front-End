@@ -54,9 +54,11 @@ function ListCards() {
                       {card.id}
                     </th>
                     <td>{card.number}</td>
+                    <td>
                     <button type="submit" onClick={() => handleDelete(card.number)} className="btn btn-danger mx-2" id = "delButton">
                     Delete
                   </button>
+                  </td>
                   </tr>
                 ))}
               </tbody>

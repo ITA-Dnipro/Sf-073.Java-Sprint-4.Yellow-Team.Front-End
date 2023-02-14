@@ -51,7 +51,7 @@ function ListUsers() {
             {listUsers &&
               listUsers.map((user) => (
                 <tr>
-                  <th scope="row">
+                  <th scope="row" key = {user.id}>
                     {user.id}
                   </th>
                   <td>{user.name}</td>

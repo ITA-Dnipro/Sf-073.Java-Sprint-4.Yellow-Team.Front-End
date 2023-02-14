@@ -52,9 +52,11 @@ function ListSuspiciousIP() {
                       {ip.id}
                     </th>
                     <td>{ip.ip}</td>
+                    <td>
                     <button type="submit" onClick={() => handleDelete(ip.ip)} className="btn btn-danger mx-2" id = "delButton">
                     Delete
                   </button>
+                  </td>
                   </tr>
                 ))}
               </tbody>
