@@ -8,7 +8,7 @@ export default class AdminBar extends Component {
         <div>
           <nav>
             <div>
-              <ul className="header">
+              <ul className="mainnav">
                 <li>
                   <Link to="users">All users</Link>
                 </li>
