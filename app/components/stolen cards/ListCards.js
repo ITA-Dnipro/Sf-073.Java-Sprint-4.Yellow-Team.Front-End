@@ -34,25 +34,38 @@ function ListCards() {
       .then(setChange)
   }
 
+
   return (
-    <div className="list-cards">
-      <div className="containers">
-        {listCards &&
-          listCards.map(card => (
-            <div key={card.id}>
-              id: {card.id}
-              <br />
-              number: {card.number}
-              <br />
-              <button type="submit" onClick={() => handleDelete(card.number)} className="btn btn-success btn-sm">
-                delete
-              </button>
-              <br></br>
-            </div>
-          ))}
+    <div className="maincontainer">
+      <div className="py-4">
+        <table className="table border shadow">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">CARD NUMBER</th>
+              <th scope="col">ACTION</th>
+            </tr>
+          </thead>
+          <tbody>
+            {listCards &&
+           listCards.map((card) => (
+              <tr>
+                <th scope="row">
+                  {card.id}
+                </th>
+                <td>{card.number}</td>
+                <td>
+                <button type="submit" onClick={() => handleDelete(ip.ip)} className="btn btn-danger mx-2" id = "delButton">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
-  )
+  );
 }
 
 export default ListCards

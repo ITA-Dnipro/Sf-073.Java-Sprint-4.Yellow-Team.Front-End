@@ -37,6 +37,12 @@ body {
   background-color: #ffc107;
   padding: 0;
 }
+.maincontainer {
+  height: 600px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  }
 .mainnav ul.header li a {
   color: white;
   font-weight: bold;
@@ -213,7 +219,9 @@ textarea.tall-textarea {
     height: 320px;
   }
 }
-
+#delButton{
+font-size: 15px;
+}
 .delete-post-button {
   cursor: pointer;
   background: none;

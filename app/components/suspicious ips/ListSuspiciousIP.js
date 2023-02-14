@@ -34,25 +34,57 @@ function ListSuspiciousIP() {
       .then(setChange)
   }
 
+  // return (
+    
+  //   <div className="list-ips">
+  //     <div className="containers">
+  //       {listIps &&
+  //         listIps.map(ip => (
+  //           <div key={ip.id}>
+  //             id: {ip.id}
+  //             <br />
+  //             ip: {ip.ip}
+  //             <br />
+  //             <button type="submit" onClick={() => handleDelete(ip.ip)} className="btn btn-success btn-sm">
+  //               delete
+  //             </button>
+  //             <br></br>
+  //           </div>
+  //         ))}
+  //     </div>
+  //   </div>
+  // )
   return (
-    <div className="list-ips">
-      <div className="containers">
-        {listIps &&
-          listIps.map(ip => (
-            <div key={ip.id}>
-              id: {ip.id}
-              <br />
-              ip: {ip.ip}
-              <br />
-              <button type="submit" onClick={() => handleDelete(ip.ip)} className="btn btn-success btn-sm">
-                delete
-              </button>
-              <br></br>
-            </div>
-          ))}
+    <div className="maincontainer">
+      <div className="py-4">
+        <table className="table border shadow">
+          <thead>
+            <tr>
+              <th scope="col">IP ID</th>
+              <th scope="col">IP ADDRESS</th>
+              <th scope="col">ACTION</th>
+            </tr>
+          </thead>
+          <tbody>
+            {listIps &&
+           listIps.map((ip) => (
+               <tr>
+                <th scope="row">
+                  {ip.id}
+                </th>
+                <td>{ip.ip}</td>
+                <td>
+                <button type="submit" onClick={() => handleDelete(ip.ip)} className="btn btn-danger mx-2" id = "delButton">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
-  )
+  );
 }
 
 export default ListSuspiciousIP
