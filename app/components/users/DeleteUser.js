@@ -25,11 +25,13 @@ class DeleteUser extends Component {
 
   render() {
     return (
+      <div className="maincontainer">
       <form onSubmit={this.handleSubmit}>
-        <big>username: </big>
+        <big>Username: </big>
         <input type="text" name="user" onChange={this.handleChange} />
-        <button type="submit"> DELETE </button>
+        <button type="submit"> Delete </button>
       </form>
+      </div>
     )
   }
 }

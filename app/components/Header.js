@@ -5,7 +5,7 @@ import StateContext from "../StateContext";
 import { render } from "react-dom";
 import AdminBar from "./bars/AdminBar";
 import SupportBar from "./bars/SupportBar";
-import TransactionBar from "./bars/TransactionBar";
+import TransactionBar from "./bars/MerchantBar";
 import HeaderLoginAuthorizated from "./Unauthorized";
 
 function logOut() {

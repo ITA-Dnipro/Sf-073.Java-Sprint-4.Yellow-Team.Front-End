@@ -42,10 +42,10 @@ function ListCards() {
             <div key={card.id}>
               id: {card.id}
               <br />
-              number: {card.number}
+              Number: {card.number}
               <br />
               <button type="submit" onClick={() => handleDelete(card.number)} className="btn btn-success btn-sm">
-                delete
+                Delete
               </button>
               <br></br>
             </div>

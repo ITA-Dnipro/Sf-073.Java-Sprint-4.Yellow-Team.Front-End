@@ -40,12 +40,12 @@ function ListSuspiciousIP() {
         {listIps &&
           listIps.map(ip => (
             <div key={ip.id}>
-              id: {ip.id}
+              ID: {ip.id}
               <br />
-              ip: {ip.ip}
+              IP: {ip.ip}
               <br />
               <button type="submit" onClick={() => handleDelete(ip.ip)} className="btn btn-success btn-sm">
-                delete
+                Delete
               </button>
               <br></br>
             </div>

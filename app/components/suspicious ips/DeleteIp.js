@@ -25,9 +25,9 @@ class DeleteIp extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <big>ip: </big>
+        <big>IP: </big>
         <input type="text" name="ip" onChange={this.handleChange} />
-        <button type="submit"> DELETE </button>
+        <button type="submit"> Delete </button>
       </form>
     )
   }

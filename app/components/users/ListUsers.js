@@ -49,7 +49,7 @@ function ListUsers() {
               role: {user.role}
               <br />
               <button type="submit" onClick={() => handleDelete(user.username)} className="btn btn-success btn-sm">
-                delete
+                Delete user
               </button>
               <br></br>
             </div>

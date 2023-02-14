@@ -22,7 +22,7 @@ import TransactionFeedback from "./components/transactions/TransactionFeedback";
 import TransactionHistory from "./components/transactions/TransactionHistory";
 import TransactionHistoryByCard from "./components/transactions/TransactionHistoryByCard";
 import Unauthorized from "./components/Unauthorized";
-import DeleteUser from "./components/users/DeleteUser"
+import DeleteUser from "./components/users/DeleteUser";
 
 function ExampleComponent() {
   return (
@@ -46,6 +46,7 @@ function ExampleComponent() {
         <Route element={<PrivateRoutes role="ADMINISTRATOR" />}>
           <Route path="/change-user-status" element={<ChangeUserStatus />}></Route>
           <Route path="/change-user-role" element={<ChangeUserRole />}></Route>
+          <Route path="delete-user" element={<DeleteUser />}></Route>
           <Route path="/admin" element={<AdminBar />}></Route>
         </Route>
         <Route element={<PrivateRoutes role="MERCHANT" />}>
