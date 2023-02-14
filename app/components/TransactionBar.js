@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 export default class TransactionBar extends Component {
   render() {
     return (
-      <nav>
+      <nav className="mainnav">
         <div>
           <nav>
             <div>

@@ -38,7 +38,7 @@ export default class SupportBar extends Component {
                             <NavDropdown.Item as={Link} to="/delete-ip" key="2">
                               Delete IP
                             </NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/list-ips" key="3">
+                            <NavDropdown.Item as={Link} to="/list-ip" key="3">
                               List IPs
                             </NavDropdown.Item>
                           </NavDropdown>
@@ -67,10 +67,24 @@ export default class SupportBar extends Component {
                     </Navbar>
                   </li>
                   <li>
-                    <Link to="transaction-history">Transaction History</Link>
-                  </li>
-                  <li>
-                    <Link to="transaction-feedback">Transaction Feedback</Link>
+                    <Navbar>
+                      <Container>
+                        <Navbar.Toggle />
+                        <Navbar.Collapse>
+                          <NavDropdown title="Transactions">
+                            <NavDropdown.Item as={Link} to="/transaction-history" key="1">
+                            Transaction History
+                            </NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/transaction-history-by-card" key="2">
+                            Transaction History by card
+                            </NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/transaction-feedback" key="3">
+                            Transaction Feedback
+                            </NavDropdown.Item>
+                          </NavDropdown>
+                        </Navbar.Collapse>
+                      </Container>
+                    </Navbar>
                   </li>
                 </ul>
               </div>
