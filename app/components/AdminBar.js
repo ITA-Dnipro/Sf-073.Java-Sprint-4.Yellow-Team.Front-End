@@ -4,11 +4,11 @@ import { Link, useNavigate } from "react-router-dom";
 export default class AdminBar extends Component {
   render() {
     return (
-      <nav>
+      <nav className="mainnav">
         <div>
           <nav>
             <div>
-              <ul className="mainnav">
+              <ul className="header">
                 <li>
                   <Link to="users">All users</Link>
                 </li>

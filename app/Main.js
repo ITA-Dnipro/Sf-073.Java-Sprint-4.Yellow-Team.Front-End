@@ -4,7 +4,6 @@ import ListUsers from "./components/ListUsers"
 import SimpleLoginComponent from "./components/SimpleLoginComponent"
 import { NavLink, Routes, Route, BrowserRouter } from "react-router-dom"
 import HomeGuest from "./components/HomeGuest"
-import Container from "./components/Container"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import About from "./components/About"
@@ -40,7 +39,6 @@ function ExampleComponent() {
         </Route>
 
         <Route path="" element={<HomeGuest />}></Route>
-        <Route path="" element={<Container />}></Route>
         <Route path="/login" element={<SimpleLoginComponent />}></Route>
         <Route path="about-us" element={<About />}></Route>
       </Routes>
