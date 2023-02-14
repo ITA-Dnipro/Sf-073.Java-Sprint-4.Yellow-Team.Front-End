@@ -16,8 +16,8 @@ function HomeGuest() {
     try {
       RegisterService.register(name, username, password)
       console.log("User was successfully created.")
-      LoginService.login(username, password)
-    } catch (e) {
+      navigate("/")
+        } catch (e) {
       alert("Error while creating user!")
       console.log("There was an error.")
     }
