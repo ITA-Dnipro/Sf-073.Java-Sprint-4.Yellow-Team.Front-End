@@ -21,8 +21,7 @@ function ListUsers() {
         setListUsers(json)
       })
   }, [change])
-
-  function handleDelete(username) {
+       function handleDelete(username) {
     const base64encodedData = localStorage.getItem("Authorization")
     console.log(username)
     axios
@@ -32,6 +31,41 @@ function ListUsers() {
         }
       })
       .then(setChange)
+      return (
+        <div className="maincontainer">
+          <div className="py-4">
+            <table className="table border shadow">
+              <thead>
+                <tr>
+                <th scope="col">ID</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Username</th>
+                  <th scope="col">Role</th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.state.listUsers &&
+               this.state.listUsers.map((user) => (
+                  <tr>
+                    <th scope="row">
+                      {user.id}
+                    </th>
+                    <td>{user.name}</td>
+                    <td>
+                    {user.username}
+                    </td>
+                    <td>
+                    {user.role}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      );
+    }
+
   }
 
   return (
