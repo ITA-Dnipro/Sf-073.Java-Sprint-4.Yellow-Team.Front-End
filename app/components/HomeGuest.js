@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import Page from "./Page"
 import RegisterService from "../services/RegisterService"
-import LoginService from "../services/LoginService"
 
 import { Link, Routes, Route, useNavigate } from "react-router-dom"
 
@@ -16,7 +15,7 @@ function HomeGuest() {
     try {
       RegisterService.register(name, username, password)
       console.log("User was successfully created.")
-      LoginService.login(username, password)
+      navigate("/login")
     } catch (e) {
       alert("Error while creating user!")
       console.log("There was an error.")

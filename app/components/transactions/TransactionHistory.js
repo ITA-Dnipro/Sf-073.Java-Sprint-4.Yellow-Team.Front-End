@@ -22,7 +22,7 @@ function TransactionHistory() {
   }, [change])
 
   return (
-    <div className="list-ips">
+    <div className="list-transactions">
       <div className="containers">
         <table>
           <tr>
