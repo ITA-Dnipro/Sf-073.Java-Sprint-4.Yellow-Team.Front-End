@@ -1,17 +1,13 @@
-import React, { useEffect, Component } from "react"
+import React, { useEffect, useState } from "react"
 import axios from "axios"
-import { Buffer } from "buffer"
 
-const LIST_CARDS_API = "http://localhost:28852/api/antifraud/stolencard"
-class ListCards extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      listCards: []
-    }
-  }
+function ListCards() {
+  const [listCards, setListCards] = useState()
+  const [change, setChange] = useState()
+  const LIST_CARDS_API = "http://localhost:28852/api/antifraud/stolencard"
+  const DELETE_CARD_API = "http://localhost:28852/api/antifraud/stolencard/"
 
-  componentDidMount() {
+  useEffect(() => {
     const base64encodedData = localStorage.getItem("Authorization")
     fetch(LIST_CARDS_API, {
       method: "GET",
@@ -22,30 +18,41 @@ class ListCards extends Component {
     })
       .then(res => res.json())
       .then(json => {
-        this.setState({
-          listCards: json
-        })
+        setListCards(json)
       })
+  }, [change])
+
+  function handleDelete(number) {
+    const base64encodedData = localStorage.getItem("Authorization")
+    console.log(number)
+    axios
+      .delete(DELETE_CARD_API + number, {
+        headers: {
+          Authorization: base64encodedData
+        }
+      })
+      .then(setChange)
   }
 
-  render() {
-    if (this.state.listCards[0] != null) {
-      return (
-        <div>
-          <div className="container">
-            {this.state.listCards.map(card => (
-              <div key={card.id}>
-                {card.id}
-                <br />
-                {card.number}
-                <br />
-              </div>
-            ))}
-          </div>
-        </div>
-      )
-    }
-  }
+  return (
+    <div className="list-cards">
+      <div className="containers">
+        {listCards &&
+          listCards.map(card => (
+            <div key={card.id}>
+              id: {card.id}
+              <br />
+              number: {card.number}
+              <br />
+              <button type="submit" onClick={() => handleDelete(card.number)} className="btn btn-success btn-sm">
+                delete
+              </button>
+              <br></br>
+            </div>
+          ))}
+      </div>
+    </div>
+  )
 }
 
 export default ListCards
