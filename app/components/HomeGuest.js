@@ -1,6 +1,9 @@
 import React, { useState } from "react"
 import Page from "./Page"
+<<<<<<< HEAD
 import Home from "./Home"
+=======
+>>>>>>> origin/main
 import register from "../services/RegisterService"
 import RegisterService from "../services/RegisterService"
 import { Link, Routes, Route, useNavigate } from "react-router-dom"
@@ -16,8 +19,12 @@ function HomeGuest() {
     try {
       RegisterService.register(name, username, password)
       console.log("User was successfully created.")
+<<<<<<< HEAD
 
       LoginService.login(username, password)
+=======
+      navigate("/login")
+>>>>>>> origin/main
     } catch (e) {
       console.log("There was an error.")
     }
@@ -36,19 +43,31 @@ function HomeGuest() {
               <label htmlFor="name-register" className="text-muted mb-1">
                 <small>Name</small>
               </label>
+<<<<<<< HEAD
               <input onChange={e => setName(e.target.value)} id="name-register" name="name" className="form-control" type="text" placeholder="Pick a name" autoComplete="off" />
+=======
+              <input onChange={e => setName(e.target.value)} id="name-register" name="name" className="form-control" type="text" placeholder="enter your name" autoComplete="off" />
+>>>>>>> origin/main
             </div>
             <div className="form-group">
               <label htmlFor="username-register" className="text-muted mb-1">
-                <small>Login</small>
+                <small>Username</small>
               </label>
+<<<<<<< HEAD
               <input onChange={e => setUsername(e.target.value)} id="username-register" name="username" className="form-control" type="text" placeholder="Pick a login" autoComplete="off" />
+=======
+              <input onChange={e => setUsername(e.target.value)} id="username-register" name="username" className="form-control" type="text" placeholder="choose an username" autoComplete="off" />
+>>>>>>> origin/main
             </div>
             <div className="form-group">
               <label htmlFor="password-register" className="text-muted mb-1">
                 <small>Password</small>
               </label>
+<<<<<<< HEAD
               <input onChange={e => setPassword(e.target.value)} id="password-register" name="password" className="form-control" type="password" placeholder="Create a password" />
+=======
+              <input onChange={e => setPassword(e.target.value)} id="password-register" name="password" className="form-control" type="password" placeholder="create a password" />
+>>>>>>> origin/main
             </div>
             <button type="submit" className="py-3 mt-4 btn btn-lg btn-success btn-block">
               Add user
