@@ -22,6 +22,8 @@ import TransactionFeedback from "./components/transactions/TransactionFeedback"
 import TransactionHistory from "./components/transactions/TransactionHistory"
 import TransactionHistoryByCard from "./components/transactions/TransactionHistoryByCard"
 
+
+
 function ExampleComponent() {
   return (
     <>
@@ -43,7 +45,6 @@ function ExampleComponent() {
           <Route path="/list-stolen-cards" element={<ListCards />}></Route>
           <Route path="/delete-stolen-card" element={<DeleteCard />}></Route>
         </Route>
-
         <Route path="" element={<HomeGuest />}></Route>
         <Route path="/login" element={<SimpleLoginComponent />}></Route>
         <Route path="about-us" element={<About />}></Route>
