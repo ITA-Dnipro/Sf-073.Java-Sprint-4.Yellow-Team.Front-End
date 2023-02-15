@@ -8,10 +8,10 @@ function About() {
       <br></br>
       <h4>SoftServe trainees:</h4>
       <ul>
-        <p className="lead text-muted">Gerasim Simeonov </p>
+        <p className="lead text-muted">Veselin Petkov </p>
         <p className="lead text-muted">Martin Petrov </p>
         <p className="lead text-muted">Oleg Kostrytsyn </p>
-        <p className="lead text-muted">Veselin Petkov </p>
+        <p className="lead text-muted">Gerasim Simeonov </p>
       </ul>
     </Page>
   )

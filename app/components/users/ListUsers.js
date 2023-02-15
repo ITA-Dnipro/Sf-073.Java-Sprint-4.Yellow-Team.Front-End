@@ -31,7 +31,6 @@ function ListUsers() {
         }
       })
       .then(setChange)
-
   }
 
   return (
@@ -49,28 +48,24 @@ function ListUsers() {
           </thead>
           <tbody>
             {listUsers &&
-              listUsers.map((user) => (
-                <tr>
-                  <th scope="row" key = {user.id}>
-                    {user.id}
-                  </th>
+              listUsers.map(user => (
+                <tr key={user.id}>
+                  <th scope="row">{user.id}</th>
                   <td>{user.name}</td>
+                  <td>{user.username}</td>
+                  <td>{user.role}</td>
                   <td>
-                    {user.username}
+                    <button type="submit" onClick={() => handleDelete(user.username)} className="btn btn-danger btn-sm">
+                      Delete user
+                    </button>
                   </td>
-                  <td>
-                    {user.role}
-                  </td>
-                  <td><button type="submit" onClick={() => handleDelete(user.username)} className="btn btn-danger btn-sm">
-                    Delete user
-                  </button></td>
                 </tr>
               ))}
           </tbody>
         </table>
       </div>
     </div>
-  );
+  )
 }
 
 export default ListUsers

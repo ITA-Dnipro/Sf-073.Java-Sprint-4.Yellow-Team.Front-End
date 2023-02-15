@@ -1,20 +1,20 @@
-import React, { useState, useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
-import HeaderLogin from "./HeaderLogin";
-import StateContext from "../StateContext";
-import { render } from "react-dom";
-import AdminBar from "./bars/AdminBar";
-import SupportBar from "./bars/SupportBar";
-import TransactionBar from "./bars/MerchantBar";
-import HeaderLoginAuthorizated from "./Unauthorized";
+import React, { useState, useContext } from "react"
+import { Link, NavLink, useHistory } from "react-router-dom"
+import HeaderLogin from "./HeaderLogin"
+import StateContext from "../StateContext"
+import { render } from "react-dom"
+import AdminBar from "./bars/AdminBar"
+import SupportBar from "./bars/SupportBar"
+import TransactionBar from "./bars/MerchantBar"
+import HeaderLoginAuthorizated from "./Unauthorized"
 
-function logOut() {
-  localStorage.clear();
-  window.location.href = "/";
+const logOut = () => {
+  localStorage.clear()
+  window.location.replace("/")
 }
 
 function Header(props) {
-  const appState = useContext(StateContext);
+  const appState = useContext(StateContext)
 
   return (
     <header className="header-bar bg-warning mb-3">
@@ -23,7 +23,12 @@ function Header(props) {
           <Link to="/" className="text-white">
             Anti fraud system
           </Link>
-          {localStorage.getItem("role") != null && <div>Welcome {localStorage.getItem("username")}!</div>}
+          {localStorage.getItem("role") != null && (
+            <div>
+              <br />
+              <h5>{localStorage.getItem("username")}</h5>
+            </div>
+          )}
         </h4>
         {localStorage.getItem("role") == null && <HeaderLogin />}
 
@@ -40,7 +45,7 @@ function Header(props) {
         )}
       </div>
     </header>
-  );
+  )
 }
 
-export default Header;
+export default Header

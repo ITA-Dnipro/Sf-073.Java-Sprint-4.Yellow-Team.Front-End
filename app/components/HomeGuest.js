@@ -15,7 +15,8 @@ function HomeGuest() {
     try {
       RegisterService.register(name, username, password)
       console.log("User was successfully created.")
-      navigate("/")
+      e.target.reset()
+      navigate("/login")
     } catch (e) {
       alert("Error while creating user!")
       console.log("There was an error.")
@@ -26,8 +27,8 @@ function HomeGuest() {
     <Page title="Welcome!" wide={true}>
       <div className="row align-items-center">
         <div className="col-lg-7 py-3 py-md-5">
-          <h1 className="display-3">Here to do some text</h1>
-          <p className="lead text-muted">what about this system</p>
+          <h1 className="display-3">Anti-Fraud System</h1>
+          <p className="lead text-muted">Simple system to handle money transactions, block stolen cards and suspicious IPs.</p>
         </div>
         <div className="col-lg-5 pl-lg-5 pb-3 py-lg-5">
           <form onSubmit={handleSubmit}>

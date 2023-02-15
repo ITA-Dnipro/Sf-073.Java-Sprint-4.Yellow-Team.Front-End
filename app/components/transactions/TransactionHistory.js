@@ -1,25 +1,25 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useEffect, useState } from "react"
+import axios from "axios"
 
 function TransactionHistory() {
-  const [listTransactions, setListTransactions] = useState();
-  const [change, setChange] = useState();
-  const LIST_TRANSACTIONS_API = "http://localhost:28852/api/antifraud/history";
+  const [listTransactions, setListTransactions] = useState()
+  const [change, setChange] = useState()
+  const LIST_TRANSACTIONS_API = "http://localhost:28852/api/antifraud/history"
 
   useEffect(() => {
-    const base64encodedData = localStorage.getItem("Authorization");
+    const base64encodedData = localStorage.getItem("Authorization")
     fetch(LIST_TRANSACTIONS_API, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: base64encodedData,
-      },
+        Authorization: base64encodedData
+      }
     })
-      .then((res) => res.json())
-      .then((json) => {
-        setListTransactions(json);
-      });
-  }, [change]);
+      .then(res => res.json())
+      .then(json => {
+        setListTransactions(json)
+      })
+  }, [change])
 
   return (
     <div className="list-transactions">
@@ -37,11 +37,9 @@ function TransactionHistory() {
           </thead>
           <tbody>
             {listTransactions &&
-              listTransactions.map((transaction) => (
-                <tr>
-                  <th scope="row" key={transaction.transactionId}>
-                    {transaction.transactionId}
-                  </th>
+              listTransactions.map(transaction => (
+                <tr key={transaction.transactionId}>
+                  <th scope="row">{transaction.transactionId}</th>
                   <th scope="row">{transaction.amount}</th>
                   <th scope="row">{transaction.ip}</th>
                   <th scope="row">{transaction.number}</th>
@@ -53,6 +51,6 @@ function TransactionHistory() {
         </table>
       </div>
     </div>
-  );
+  )
 }
-export default TransactionHistory;
+export default TransactionHistory

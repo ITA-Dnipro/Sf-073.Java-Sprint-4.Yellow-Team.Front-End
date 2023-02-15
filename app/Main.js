@@ -62,7 +62,7 @@ function ExampleComponent() {
           <Route element={<PrivateRoutes role="ADMINISTRATOR" />}>
             <Route path="/change-user-status" element={<ChangeUserStatus />}></Route>
             <Route path="/change-user-role" element={<ChangeUserRole />}></Route>
-            <Route path="delete-user" element={<DeleteUser />}></Route>
+            <Route path="/delete-user" element={<DeleteUser />}></Route>
             <Route path="/admin" element={<AdminBar />}></Route>
           </Route>
           <Route element={<PrivateRoutes role="MERCHANT" />}>
