@@ -18,7 +18,9 @@ function ListUsers() {
     })
       .then(res => res.json())
       .then(json => {
-        setListUsers(json)
+        setListUsers(json).catch(err => {
+          alert(err)
+        })
       })
   }, [change])
   function handleDelete(username) {

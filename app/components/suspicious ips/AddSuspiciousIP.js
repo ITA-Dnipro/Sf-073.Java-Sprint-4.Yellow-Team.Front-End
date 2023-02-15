@@ -8,11 +8,15 @@ class AddSuspiciousIP extends Component {
       ip: this.state.ip
     }
     console.log(ip)
-    axios.post("http://localhost:28852/api/antifraud/suspicious-ip", ip, {
-      headers: {
-        Authorization: base64encodedData
-      }
-    })
+    axios
+      .post("http://localhost:28852/api/antifraud/suspicious-ip", ip, {
+        headers: {
+          Authorization: base64encodedData
+        }
+      })
+      .catch(err => {
+        alert(err)
+      })
     event.target.reset()
   }
 

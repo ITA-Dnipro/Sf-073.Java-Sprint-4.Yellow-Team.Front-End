@@ -10,11 +10,15 @@ class AddCard extends Component {
       number: this.state.card
     }
     console.log(card)
-    axios.post(ADD_CARD_API, card, {
-      headers: {
-        Authorization: base64encodedData
-      }
-    })
+    axios
+      .post(ADD_CARD_API, card, {
+        headers: {
+          Authorization: base64encodedData
+        }
+      })
+      .catch(err => {
+        alert(err)
+      })
     event.target.reset()
   }
 

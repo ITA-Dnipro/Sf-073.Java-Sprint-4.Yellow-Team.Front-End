@@ -20,6 +20,9 @@ function ChangeUserStatus() {
         }
       })
       .then(setChange)
+      .catch(err => {
+        alert(err)
+      })
   }
 
   useEffect(() => {

@@ -33,7 +33,11 @@ function ChangeUserRole() {
         }
       })
       .then(setChange)
+      .catch(err => {
+        alert(err)
+      })
   }
+
   function handleChange(e) {
     console.log("Role Selected!!!")
     setRole(e.target.value)

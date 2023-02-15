@@ -10,11 +10,15 @@ class DeleteIp extends Component {
       ip: this.state.ip
     }
     console.log(ip)
-    axios.delete(`http://localhost:28852/api/antifraud/suspicious-ip/` + this.state.ip, {
-      headers: {
-        Authorization: base64encodedData
-      }
-    })
+    axios
+      .delete(`http://localhost:28852/api/antifraud/suspicious-ip/` + this.state.ip, {
+        headers: {
+          Authorization: base64encodedData
+        }
+      })
+      .catch(err => {
+        alert(err)
+      })
     event.target.reset()
   }
 

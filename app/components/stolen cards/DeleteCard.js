@@ -11,11 +11,15 @@ class DeleteCard extends Component {
       card: this.state.card
     }
     console.log(card)
-    axios.delete(DELETE_CARD_API + this.state.card, {
-      headers: {
-        Authorization: base64encodedData
-      }
-    })
+    axios
+      .delete(DELETE_CARD_API + this.state.card, {
+        headers: {
+          Authorization: base64encodedData
+        }
+      })
+      .catch(err => {
+        alert(err)
+      })
     event.target.reset()
   }
 

@@ -11,11 +11,15 @@ class DeleteUser extends Component {
       user: this.state.user
     }
     console.log(user)
-    axios.delete(DELETE_USER_API + this.state.user, {
-      headers: {
-        Authorization: base64encodedData
-      }
-    })
+    axios
+      .delete(DELETE_USER_API + this.state.user, {
+        headers: {
+          Authorization: base64encodedData
+        }
+      })
+      .catch(err => {
+        alert(err)
+      })
     event.target.reset()
   }
 
@@ -26,11 +30,11 @@ class DeleteUser extends Component {
   render() {
     return (
       <div className="maincontainer">
-      <form onSubmit={this.handleSubmit}>
-        <big>Username: </big>
-        <input type="text" name="user" onChange={this.handleChange} />
-        <button type="submit"> Delete </button>
-      </form>
+        <form onSubmit={this.handleSubmit}>
+          <big>Username: </big>
+          <input type="text" name="user" onChange={this.handleChange} />
+          <button type="submit"> Delete </button>
+        </form>
       </div>
     )
   }
