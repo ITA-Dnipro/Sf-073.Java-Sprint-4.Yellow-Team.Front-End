@@ -49,10 +49,8 @@ function ListUsers() {
           <tbody>
             {listUsers &&
               listUsers.map(user => (
-                <tr>
-                  <th scope="row" key={user.id}>
-                    {user.id}
-                  </th>
+                <tr key={user.id}>
+                  <th scope="row">{user.id}</th>
                   <td>{user.name}</td>
                   <td>{user.username}</td>
                   <td>{user.role}</td>

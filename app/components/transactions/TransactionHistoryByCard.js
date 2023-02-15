@@ -1,34 +1,34 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useEffect, useState } from "react"
+import axios from "axios"
 
 function TransactionHistoryByCard() {
-  const [listTransactions, setListTransactions] = useState();
-  const [change, setChange] = useState();
-  const [card_number, setNumber] = useState();
-  const LIST_TRANSACTIONS_API = "http://localhost:28852/api/antifraud/history/";
+  const [listTransactions, setListTransactions] = useState()
+  const [change, setChange] = useState()
+  const [card_number, setNumber] = useState()
+  const LIST_TRANSACTIONS_API = "http://localhost:28852/api/antifraud/history/"
 
   function getListOfTransactions() {
-    const base64encodedData = localStorage.getItem("Authorization");
+    const base64encodedData = localStorage.getItem("Authorization")
     fetch(LIST_TRANSACTIONS_API + card_number, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: base64encodedData,
-      },
+        Authorization: base64encodedData
+      }
     })
-      .then((res) => res.json())
-      .then((json) => {
-        setListTransactions(json);
-      });
+      .then(res => res.json())
+      .then(json => {
+        setListTransactions(json)
+      })
   }
 
   function handleSubmit(e) {
-    e.preventDefault();
+    e.preventDefault()
     try {
-      getListOfTransactions();
+      getListOfTransactions()
     } catch (e) {
-      alert("There was an error.");
-      console.log("There was an error.");
+      alert("There was an error.")
+      console.log("There was an error.")
     }
   }
 
@@ -37,7 +37,7 @@ function TransactionHistoryByCard() {
       <div className="list-transactions">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <input type="number" name="number" onChange={(e) => setNumber(e.target.value)} />
+            <input type="number" name="number" onChange={e => setNumber(e.target.value)} />
             <button type="submit"> OK </button>
           </div>
         </form>
@@ -55,11 +55,9 @@ function TransactionHistoryByCard() {
             </thead>
             <tbody>
               {listTransactions &&
-                listTransactions.map((transaction) => (
-                  <tr>
-                    <th scope="row" key={transaction.transactionId}>
-                      {transaction.transactionId}
-                    </th>
+                listTransactions.map(transaction => (
+                  <tr key={transaction.transactionId}>
+                    <th scope="row">{transaction.transactionId}</th>
                     <th scope="row">{transaction.amount}</th>
                     <th scope="row">{transaction.ip}</th>
                     <th scope="row">{transaction.number}</th>
@@ -72,6 +70,6 @@ function TransactionHistoryByCard() {
         </div>
       </div>
     </div>
-  );
+  )
 }
-export default TransactionHistoryByCard;
+export default TransactionHistoryByCard

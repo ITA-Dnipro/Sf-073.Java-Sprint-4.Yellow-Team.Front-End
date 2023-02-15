@@ -1,13 +1,15 @@
 import React, { useState, useContext } from "react"
-import { Link, NavLink } from "react-router-dom"
+import { Link, NavLink, useHistory } from "react-router-dom"
 import HeaderLogin from "./HeaderLogin"
 import StateContext from "../StateContext"
+import { render } from "react-dom"
 import AdminBar from "./bars/AdminBar"
 import SupportBar from "./bars/SupportBar"
 import TransactionBar from "./bars/MerchantBar"
+import HeaderLoginAuthorizated from "./Unauthorized"
 
-function logOut() {
-  localStorage.clear()
+const logOut = () => {
+  window.localStorage.clear()
   window.location.href = "/"
 }
 

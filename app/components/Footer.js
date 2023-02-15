@@ -14,9 +14,9 @@ function Footer() {
         </Link>{" "}
       </p>
       <p className="m-0">
-        Copyright &copy; 2023{" "}
+        Copyright &copy; {new Date().getFullYear()}
         <a href="/" className="text-muted">
-          Anti fraud system
+          . Anti fraud system
         </a>
         . All rights reserved.
       </p>

@@ -36,7 +36,7 @@ function ListSuspiciousIP() {
   return (
     <div className="maincontainer">
       <div className="py-4">
-      <table className="table border shadow">
+        <table className="table border shadow">
           <thead>
             <tr>
               <th scope="col">ID</th>
@@ -45,25 +45,23 @@ function ListSuspiciousIP() {
             </tr>
           </thead>
           <tbody>
-                {listIps &&
-              listIps.map((ip) => (
-                  <tr>
-                    <th scope="row" key = {ip.id}>
-                      {ip.id}
-                    </th>
-                    <td>{ip.ip}</td>
-                    <td>
-                    <button type="submit" onClick={() => handleDelete(ip.ip)} className="btn btn-danger mx-2" id = "delButton">
-                    Delete
-                  </button>
+            {listIps &&
+              listIps.map(ip => (
+                <tr key={ip.id}>
+                  <th scope="row">{ip.id}</th>
+                  <td>{ip.ip}</td>
+                  <td>
+                    <button type="submit" onClick={() => handleDelete(ip.ip)} className="btn btn-danger mx-2" id="delButton">
+                      Delete
+                    </button>
                   </td>
-                  </tr>
-                ))}
-              </tbody>
+                </tr>
+              ))}
+          </tbody>
         </table>
       </div>
     </div>
-  );
+  )
 }
 
 export default ListSuspiciousIP
