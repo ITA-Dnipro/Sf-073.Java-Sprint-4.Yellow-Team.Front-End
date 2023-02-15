@@ -12,6 +12,7 @@ function Home() {
       <p className="lead text-muted text-center">Welcome to anti-fraud system.</p>
       <p className="lead text-muted text-center">Please select operation from the header to proceed.</p>
     </Page>
+    
   )
 }
 

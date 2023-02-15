@@ -41,6 +41,7 @@ function ListUsers() {
   return (
     <div className="container">
       <div className="py-4">
+      <h4>USERS LIST</h4>
         <table className="table border shadow">
           <thead>
             <tr>
