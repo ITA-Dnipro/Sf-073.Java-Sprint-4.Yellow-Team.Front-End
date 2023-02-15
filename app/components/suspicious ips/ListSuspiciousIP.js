@@ -31,6 +31,9 @@ function ListSuspiciousIP() {
           Authorization: base64encodedData
         }
       })
+      .catch(err => {
+        alert(err)
+      })
       .then(setChange)
   }
   return (
