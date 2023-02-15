@@ -42,7 +42,6 @@ function TransactionHistory() {
               <th scope="col">DATE</th>
               <th scope="col">RESULT</th>
               <th scope="col">FEEDBACK</th>
-              <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
@@ -57,11 +56,6 @@ function TransactionHistory() {
                   <td scope="row">{transaction.date}</td>
                   <td scope="row">{transaction.result}</td>
                   <td scope="row">{transaction.feedback}</td>
-                  <td>
-                    <button type="submit" onClick={() => handleAddFeedback(transaction.transactionId)} className="btn btn-danger mx-2" id="addButton">
-                      Add feedback
-                    </button>
-                  </td>
                 </tr>
               ))}
           </tbody>
