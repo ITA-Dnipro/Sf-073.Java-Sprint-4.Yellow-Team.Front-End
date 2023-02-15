@@ -32,6 +32,9 @@ function ListUsers() {
           Authorization: base64encodedData
         }
       })
+      .catch(err => {
+        alert(err)
+      })
       .then(setChange)
   }
 
