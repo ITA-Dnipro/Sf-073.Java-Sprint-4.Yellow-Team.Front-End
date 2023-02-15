@@ -41,7 +41,7 @@ function ChangeUserStatus() {
   }, [change])
 
   return (
-    <div className="maincontainer">
+    <div className="container">
       <div className="py-4">
         <table className="table border shadow">
           <thead>

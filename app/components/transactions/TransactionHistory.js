@@ -31,6 +31,7 @@ function TransactionHistory() {
   return (
     <div className="list-transactions">
       <div className="container">
+      <h4>TRANSACTION HISTORY</h4>
         <table className="table border shadow">
           <thead>
             <tr>

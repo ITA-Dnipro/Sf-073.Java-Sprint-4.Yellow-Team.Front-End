@@ -25,6 +25,12 @@ body {
 .container--narrow {
   max-width: 732px;
 }
+.transactionContainer {
+  height: 700px;
+  width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .maincontainer {
   height: 600px;
@@ -63,7 +69,7 @@ body {
   width: 50%;
   margin-left: auto;
   margin-right: auto;
-  }
+}
 .mainnav ul.header li a {
   color: white;
   font-weight: bold;
@@ -90,6 +96,7 @@ a.dropdown-item {
 .containers {
   margin-left: 10px;
   margin-right: 10px;
+  
 }
 .chat-count-badge {
   text-align: center;
@@ -241,8 +248,8 @@ textarea.tall-textarea {
     height: 320px;
   }
 }
-#delButton{
-font-size: 15px;
+#delButton {
+  font-size: 15px;
 }
 .delete-post-button {
   cursor: pointer;
@@ -325,6 +332,14 @@ font-size: 15px;
   align-items: center;
   padding-top: 15px;
   padding-bottom: 15px;
+}
+h4{
+  font-weight: bold;
+}
+.inputfield{
+  margin-left: 5px;
+  margin-right: 5px;
+
 }
 
 .search-overlay-bottom {

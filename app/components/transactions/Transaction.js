@@ -26,6 +26,7 @@ function Transaction() {
 
   return (
     <div className="container">
+      <h4 style={{ textAlign: "center" }}>CREATE A TRANSACTION</h4>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="amount-register" className="text-muted mb-1">

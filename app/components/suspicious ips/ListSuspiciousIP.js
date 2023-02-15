@@ -1,40 +1,40 @@
-import React, { useEffect, useState } from "react"
-import axios from "axios"
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 function ListSuspiciousIP() {
-  const [listIps, setListIps] = useState()
-  const [change, setChange] = useState()
-  const LIST_IPS_API = "http://localhost:28852/api/antifraud/suspicious-ip"
-  const DELETE_CARD_API = "http://localhost:28852/api/antifraud/suspicious-ip/"
+  const [listIps, setListIps] = useState();
+  const [change, setChange] = useState();
+  const LIST_IPS_API = "http://localhost:28852/api/antifraud/suspicious-ip";
+  const DELETE_CARD_API = "http://localhost:28852/api/antifraud/suspicious-ip/";
 
   useEffect(() => {
-    const base64encodedData = localStorage.getItem("Authorization")
+    const base64encodedData = localStorage.getItem("Authorization");
     fetch(LIST_IPS_API, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: base64encodedData
-      }
+        Authorization: base64encodedData,
+      },
     })
-      .then(res => res.json())
-      .then(json => {
-        setListIps(json)
-      })
-  }, [change])
+      .then((res) => res.json())
+      .then((json) => {
+        setListIps(json);
+      });
+  }, [change]);
 
   function handleDelete(ip) {
-    const base64encodedData = localStorage.getItem("Authorization")
-    console.log(ip)
+    const base64encodedData = localStorage.getItem("Authorization");
+    console.log(ip);
     axios
       .delete(DELETE_CARD_API + ip, {
         headers: {
-          Authorization: base64encodedData
-        }
+          Authorization: base64encodedData,
+        },
       })
-      .then(setChange)
+      .then(setChange);
   }
   return (
-    <div className="maincontainer">
+    <div className="container" style={{ textAlign: "center" }}>
       <div className="py-4">
         <table className="table border shadow">
           <thead>
@@ -46,7 +46,7 @@ function ListSuspiciousIP() {
           </thead>
           <tbody>
             {listIps &&
-              listIps.map(ip => (
+              listIps.map((ip) => (
                 <tr key={ip.id}>
                   <th scope="row">{ip.id}</th>
                   <td>{ip.ip}</td>
@@ -61,7 +61,7 @@ function ListSuspiciousIP() {
         </table>
       </div>
     </div>
-  )
+  );
 }
 
-export default ListSuspiciousIP
+export default ListSuspiciousIP;

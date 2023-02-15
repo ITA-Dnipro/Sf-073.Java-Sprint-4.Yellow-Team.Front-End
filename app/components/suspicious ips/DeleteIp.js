@@ -29,10 +29,11 @@ class DeleteIp extends Component {
   render() {
     return (
       <div className="maincontainer">
+        <h4>DELETE SUSPICIOUS IP</h4>
         <form onSubmit={this.handleSubmit}>
           <big>IP: </big>
-          <input type="text" name="ip" onChange={this.handleChange} />
-          <button type="submit"> Delete </button>
+          <input className="inputfield" type="text" name="ip" onChange={this.handleChange} />
+          <button type="submit" className="btn btn-danger btn-sm"> Delete </button>
         </form>
       </div>
     )

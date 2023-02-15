@@ -36,15 +36,15 @@ function ListUsers() {
   }
 
   return (
-    <div className="maincontainer">
+    <div className="container">
       <div className="py-4">
         <table className="table border shadow">
           <thead>
             <tr>
               <th scope="col">ID</th>
-              <th scope="col">Name</th>
-              <th scope="col">Username</th>
-              <th scope="col">Role</th>
+              <th scope="col">NAME</th>
+              <th scope="col">USERNAME</th>
+              <th scope="col">ROLE</th>
               <th scope="col">ACTION</th>
             </tr>
           </thead>

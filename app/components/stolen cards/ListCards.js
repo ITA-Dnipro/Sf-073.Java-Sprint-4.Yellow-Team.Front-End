@@ -35,7 +35,7 @@ function ListCards() {
   }
 
   return (
-    <div className="maincontainer">
+    <div className="container" style={{ textAlign: "center" }}>
       <div className="py-4">
         <table className="table border shadow">
           <thead>

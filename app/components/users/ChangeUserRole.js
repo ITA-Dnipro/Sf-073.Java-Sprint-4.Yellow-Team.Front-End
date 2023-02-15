@@ -60,7 +60,7 @@ function ChangeUserRole() {
   }, [change])
 
   return (
-    <div className="maincontainer">
+    <div className="container">
       <div className="py-4">
         <table className="table border shadow">
           <thead>
@@ -68,7 +68,7 @@ function ChangeUserRole() {
               <th scope="col">ID</th>
               <th scope="col">USERNAME</th>
               <th scope="col">ROLE</th>
-              <th scope="col">SELECTED ROLE</th>
+              <th scope="col">SELECT ROLE</th>
               <th scope="col">ACTION</th>
             </tr>
           </thead>
