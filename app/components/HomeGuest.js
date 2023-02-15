@@ -24,7 +24,7 @@ function HomeGuest() {
   }
 
   return (
-    <Page title="Welcome!" wide={true}>
+    <Page title="Welcome to anti-fraud system!" wide={true}>
       <div className="row align-items-center">
         <div className="col-lg-7 py-3 py-md-5">
           <h1 className="display-3">Anti-Fraud System</h1>

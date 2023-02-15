@@ -19,13 +19,12 @@ export default class ListCards extends Component {
         Authorization: base64encodedData
       }
     })
-    
-    .then(res => res.json())
-    .then(json => {
-      this.setState({
-        listCards: json
+      .then(res => res.json())
+      .then(json => {
+        this.setState({
+          listCards: json
+        })
       })
-    })
   }
 
   render() {
@@ -42,11 +41,11 @@ export default class ListCards extends Component {
         //           <br />
         //         </div>
         //       ))}
-              
+
         //   </div>
         // </div>
         <h1>kura mi qnko</h1>
-      );
+      )
     }
   }
 }
