@@ -9,6 +9,21 @@ function TransactionFeedback() {
 
   const navigate = useNavigate()
 
+  const feedbackStatus = [
+    {
+      label: "ALLOWED",
+      value: "ALLOWED"
+    },
+    {
+      label: "MANUAL PROCESSING",
+      value: "MANUAL_PROCESSING"
+    },
+    {
+      label: "PROHIBITED",
+      value: "PROHIBITED"
+    }
+  ]
+
   function handleSubmit(e) {
     e.preventDefault()
     TransactionService.addFeedback(id, feedback)
@@ -27,7 +42,11 @@ function TransactionFeedback() {
           <label htmlFor="value-feedback" className="text-muted mb-1">
             <small>Feedback</small>
           </label>
-          <input onChange={e => setFeedback(e.target.value)} id="value-feedback" name="feedback" className="form-control" type="text" placeholder="Set a feedback" autoComplete="off" />
+          <select className="form-control" id="value-feedback" name="feedback" value={feedbackStatus.value} onChange={e => setFeedback(e.target.value)}>
+            {feedbackStatus.map(status_feedback => (
+              <option value={status_feedback.value}>{status_feedback.label}</option>
+            ))}
+          </select>
         </div>
         <button type="submit" className="py-3 mt-4 btn btn-lg btn-success btn-block">
           Add feedback

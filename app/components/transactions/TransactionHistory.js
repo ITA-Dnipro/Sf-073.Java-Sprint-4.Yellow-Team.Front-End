@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
+import TransactionFeedback from "./TransactionFeedback"
 
 function TransactionHistory() {
   const [listTransactions, setListTransactions] = useState()
@@ -21,6 +22,12 @@ function TransactionHistory() {
       })
   }, [change])
 
+  function handleAddFeedback(id) {
+    navigation.navigate("/transaction-feedback", {
+      id: id
+    })
+  }
+
   return (
     <div className="list-transactions">
       <div className="container">
@@ -35,6 +42,7 @@ function TransactionHistory() {
               <th scope="col">DATE</th>
               <th scope="col">RESULT</th>
               <th scope="col">FEEDBACK</th>
+              <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
@@ -42,13 +50,18 @@ function TransactionHistory() {
               listTransactions.map(transaction => (
                 <tr key={transaction.transactionId}>
                   <th scope="row">{transaction.transactionId}</th>
-                  <th scope="row">{transaction.amount}</th>
-                  <th scope="row">{transaction.ip}</th>
-                  <th scope="row">{transaction.number}</th>
-                  <th scope="row">{transaction.region}</th>
-                  <th scope="row">{transaction.date}</th>
-                  <th scope="row">{transaction.result}</th>
-                  <th scope="row">{transaction.feedback}</th>
+                  <td scope="row">{transaction.amount}</td>
+                  <td scope="row">{transaction.ip}</td>
+                  <td scope="row">{transaction.number}</td>
+                  <td scope="row">{transaction.region}</td>
+                  <td scope="row">{transaction.date}</td>
+                  <td scope="row">{transaction.result}</td>
+                  <td scope="row">{transaction.feedback}</td>
+                  <td>
+                    <button type="submit" onClick={() => handleAddFeedback(transaction.transactionId)} className="btn btn-danger mx-2" id="addButton">
+                      Add feedback
+                    </button>
+                  </td>
                 </tr>
               ))}
           </tbody>
