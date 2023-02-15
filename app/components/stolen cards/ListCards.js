@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, Component } from "react"
 import axios from "axios"
 
 function ListCards() {
@@ -34,7 +34,6 @@ function ListCards() {
       .then(setChange)
   }
 
-
   return (
     <div className="maincontainer">
       <div className="py-4">
@@ -47,25 +46,23 @@ function ListCards() {
             </tr>
           </thead>
           <tbody>
-                {listCards &&
-              listCards.map((card) => (
-                  <tr>
-                    <th scope="row" key = {card.id}>
-                      {card.id}
-                    </th>
-                    <td>{card.number}</td>
-                    <td>
-                    <button type="submit" onClick={() => handleDelete(card.number)} className="btn btn-danger mx-2" id = "delButton">
-                    Delete
-                  </button>
+            {listCards &&
+              listCards.map(card => (
+                <tr key={card.id}>
+                  <th scope="row">{card.id}</th>
+                  <td>{card.number}</td>
+                  <td>
+                    <button type="submit" onClick={() => handleDelete(card.number)} className="btn btn-danger mx-2" id="delButton">
+                      Delete
+                    </button>
                   </td>
-                  </tr>
-                ))}
-              </tbody>
+                </tr>
+              ))}
+          </tbody>
         </table>
       </div>
     </div>
-  );
+  )
 }
 
 export default ListCards

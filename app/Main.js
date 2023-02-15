@@ -32,9 +32,9 @@ function ExampleComponent() {
       <>
         <Header />
         <Routes>
-          <Route path="" element={<HomeGuest />}></Route>
+          <Route path="/" element={<HomeGuest />}></Route>
           <Route path="/login" element={<SimpleLoginComponent />}></Route>
-          <Route path="about-us" element={<About />}></Route>
+          <Route path="/about-us" element={<About />}></Route>
           <Route path="/unauthorized" element={<Unauthorized />}></Route>
         </Routes>
         <Footer />
@@ -62,14 +62,15 @@ function ExampleComponent() {
           <Route element={<PrivateRoutes role="ADMINISTRATOR" />}>
             <Route path="/change-user-status" element={<ChangeUserStatus />}></Route>
             <Route path="/change-user-role" element={<ChangeUserRole />}></Route>
-            <Route path="delete-user" element={<DeleteUser />}></Route>
+            <Route path="/delete-user" element={<DeleteUser />}></Route>
             <Route path="/admin" element={<AdminBar />}></Route>
           </Route>
           <Route element={<PrivateRoutes role="MERCHANT" />}>
             <Route path="/transaction" element={<Transaction />}></Route>
           </Route>
-          <Route path="" element={<Home />}></Route>
+          <Route path="/" element={<HomeGuest />}></Route>
           <Route path="/login" element={<SimpleLoginComponent />}></Route>
+          <Route path="/logged" element={<Home />}></Route>
           <Route path="about-us" element={<About />}></Route>
           <Route path="/unauthorized" element={<Unauthorized />}></Route>
         </Routes>
