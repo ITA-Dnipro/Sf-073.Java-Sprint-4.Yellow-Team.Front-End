@@ -15,7 +15,7 @@ class LoginService {
     localStorage.setItem("Authorization", `Basic ${base64encodedData}`)
     localStorage.setItem("username", response.data.username)
     localStorage.setItem("role", response.data.role)
-    window.location.href = "/"
+    window.location.href = "/logged"
   }
 }
 export default new LoginService()

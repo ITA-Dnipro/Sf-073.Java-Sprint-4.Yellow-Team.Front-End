@@ -9,8 +9,8 @@ import TransactionBar from "./bars/MerchantBar"
 import HeaderLoginAuthorizated from "./Unauthorized"
 
 const logOut = () => {
-  localStorage.clear()
-  window.location.replace("/")
+  window.localStorage.clear()
+  window.location.href = "/"
 }
 
 function Header(props) {
