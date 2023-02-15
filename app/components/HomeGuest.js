@@ -12,14 +12,7 @@ function HomeGuest() {
 
   function handleSubmit(e) {
     e.preventDefault()
-    try {
-      RegisterService.register(name, username, password)
-      console.log("User was successfully created.")
-      navigate("/login")
-    } catch (e) {
-      alert("Error while creating user!")
-      console.log("There was an error.")
-    }
+    RegisterService.register(name, username, password)
   }
 
   return (

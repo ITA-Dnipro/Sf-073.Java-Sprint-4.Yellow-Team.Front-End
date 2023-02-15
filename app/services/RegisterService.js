@@ -1,14 +1,27 @@
-import axios from "axios";
+import axios from "axios"
+import { Link, Routes, Route, useNavigate } from "react-router-dom"
 
-const REGISTER_REST_API_URL = "http://localhost:28852/api/auth/user";
+const REGISTER_REST_API_URL = "http://localhost:28852/api/auth"
 
 class RegisterService {
-  register(name,username,password) {
-    return axios.post(REGISTER_REST_API_URL, {
+  register(name, username, password) {
+    const customAxios = axios.create({
+      baseURL: REGISTER_REST_API_URL
+    })
+    customAxios.interceptors.response.use(
+      response => {
+        window.location.href = "/login"
+      },
+      error => {
+        alert(error)
+        window.location.href = "/"
+      }
+    )
+    customAxios.post("user", {
       name: name,
       username: username,
-      password: password,
-    });
+      password: password
+    })
   }
 }
-export default new RegisterService();
+export default new RegisterService()
