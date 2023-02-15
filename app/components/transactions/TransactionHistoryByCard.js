@@ -24,12 +24,7 @@ function TransactionHistoryByCard() {
 
   function handleSubmit(e) {
     e.preventDefault()
-    try {
-      getListOfTransactions()
-    } catch (e) {
-      alert("There was an error.")
-      console.log("There was an error.")
-    }
+    getListOfTransactions()
   }
 
   return (
@@ -51,6 +46,8 @@ function TransactionHistoryByCard() {
                 <th scope="col">NUMBER</th>
                 <th scope="col">REGION</th>
                 <th scope="col">DATE</th>
+                <th scope="col">RESULT</th>
+                <th scope="col">FEEDBACK</th>
               </tr>
             </thead>
             <tbody>
@@ -63,6 +60,8 @@ function TransactionHistoryByCard() {
                     <th scope="row">{transaction.number}</th>
                     <th scope="row">{transaction.region}</th>
                     <th scope="row">{transaction.date}</th>
+                    <th scope="row">{transaction.result}</th>
+                    <th scope="row">{transaction.feedback}</th>
                   </tr>
                 ))}
             </tbody>

@@ -5,6 +5,12 @@ const TRANSACTION_REST_API_URL = "http://localhost:28852/api/antifraud"
 class TransactionService {
   registerTransaction(amount, ip, number, region, date) {
     const base64encodedData = localStorage.getItem("Authorization")
+    const customAxios = axios.create({
+      baseURL: TRANSACTION_REST_API_URL,
+      headers: {
+        Authorization: base64encodedData
+      }
+    })
     const transactionData = {
       amount: amount,
       ip: ip,
@@ -12,26 +18,38 @@ class TransactionService {
       region: region,
       date: date
     }
-    axios.post(TRANSACTION_REST_API_URL + "/transaction", transactionData, {
-      headers: {
-        Authorization: base64encodedData
+    customAxios.interceptors.response.use(
+      response => {
+        window.location.href = "/logged"
+      },
+      error => {
+        alert(error)
       }
-    })
+    )
+    customAxios.post("transaction", transactionData)
   }
 
   addFeedback(id, feedback) {
     const base64encodedData = localStorage.getItem("Authorization")
-    const transactionData = [
-      {
-        id: id,
-        feedback: feedback
-      }
-    ]
-    axios.put(TRANSACTION_REST_API_URL + "/transaction", transactionData, {
+    const customAxios = axios.create({
+      baseURL: TRANSACTION_REST_API_URL,
       headers: {
         Authorization: base64encodedData
       }
     })
+    const transactionData = {
+      transactionId: id,
+      feedback: feedback
+    }
+    customAxios.interceptors.response.use(
+      response => {
+        window.location.href = "/logged"
+      },
+      error => {
+        alert(error)
+      }
+    )
+    customAxios.put("transaction", transactionData)
   }
 }
 export default new TransactionService()

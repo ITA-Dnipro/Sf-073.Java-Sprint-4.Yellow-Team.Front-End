@@ -33,6 +33,8 @@ function TransactionHistory() {
               <th scope="col">NUMBER</th>
               <th scope="col">REGION</th>
               <th scope="col">DATE</th>
+              <th scope="col">RESULT</th>
+              <th scope="col">FEEDBACK</th>
             </tr>
           </thead>
           <tbody>
@@ -45,6 +47,8 @@ function TransactionHistory() {
                   <th scope="row">{transaction.number}</th>
                   <th scope="row">{transaction.region}</th>
                   <th scope="row">{transaction.date}</th>
+                  <th scope="row">{transaction.result}</th>
+                  <th scope="row">{transaction.feedback}</th>
                 </tr>
               ))}
           </tbody>
