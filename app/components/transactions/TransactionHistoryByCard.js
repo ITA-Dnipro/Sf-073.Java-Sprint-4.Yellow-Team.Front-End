@@ -9,17 +9,21 @@ function TransactionHistoryByCard() {
 
   function getListOfTransactions() {
     const base64encodedData = localStorage.getItem("Authorization")
-    fetch(LIST_TRANSACTIONS_API + card_number, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: base64encodedData
-      }
-    })
-      .then(res => res.json())
-      .then(json => {
-        setListTransactions(json)
+    try {
+      fetch(LIST_TRANSACTIONS_API + card_number, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: base64encodedData
+        }
       })
+        .then(res => res.json())
+        .then(json => {
+          setListTransactions(json)
+        })
+    } catch (error) {
+      alert(error)
+    }
   }
 
   function handleSubmit(e) {
