@@ -1,20 +1,18 @@
-import React, { useState, useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
-import HeaderLogin from "./HeaderLogin";
-import StateContext from "../StateContext";
-import { render } from "react-dom";
-import AdminBar from "./bars/AdminBar";
-import SupportBar from "./bars/SupportBar";
-import TransactionBar from "./bars/MerchantBar";
-import HeaderLoginAuthorizated from "./Unauthorized";
+import React, { useState, useContext } from "react"
+import { Link, NavLink } from "react-router-dom"
+import HeaderLogin from "./HeaderLogin"
+import StateContext from "../StateContext"
+import AdminBar from "./bars/AdminBar"
+import SupportBar from "./bars/SupportBar"
+import TransactionBar from "./bars/MerchantBar"
 
 function logOut() {
-  localStorage.clear();
-  window.location.href = "/";
+  localStorage.clear()
+  window.location.href = "/"
 }
 
 function Header(props) {
-  const appState = useContext(StateContext);
+  const appState = useContext(StateContext)
 
   return (
     <header className="header-bar bg-warning mb-3">
@@ -40,7 +38,7 @@ function Header(props) {
         )}
       </div>
     </header>
-  );
+  )
 }
 
-export default Header;
+export default Header

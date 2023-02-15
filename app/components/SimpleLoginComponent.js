@@ -9,16 +9,18 @@ const handleLogin = () => {
 class SimpleLoginComponent extends Component {
   render() {
     return (
-      <div>
-        <label>Username</label>
-        <input onChange={e => (username = e.target.value)} type="text" className="form-control" id="username" aria-describedby="emailHelp" placeholder="Title" />
-        <label>Password</label>
-        <input onChange={e => (password = e.target.value)} type="password" className="form-control" id="password" aria-describedby="emailHelp" placeholder="Password" />
+      <Page title="Login page!" wide={false}>
+        <div>
+          <label>Username</label>
+          <input onChange={e => (username = e.target.value)} type="text" className="form-control" id="username" aria-describedby="emailHelp" placeholder="Title" />
+          <label>Password</label>
+          <input onChange={e => (password = e.target.value)} type="password" className="form-control" id="password" aria-describedby="emailHelp" placeholder="Password" />
 
-        <button type="submit" className="btn btn-primary" onClick={handleLogin}>
-          Login
-        </button>
-      </div>
+          <button type="submit" className="btn btn-primary" onClick={handleLogin}>
+            Login
+          </button>
+        </div>
+      </Page>
     )
   }
 }

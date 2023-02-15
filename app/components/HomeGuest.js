@@ -23,11 +23,11 @@ function HomeGuest() {
   }
 
   return (
-    <Page title="Welcome!" wide={true}>
+    <Page title="Welcome to anti-fraud system!" wide={true}>
       <div className="row align-items-center">
         <div className="col-lg-7 py-3 py-md-5">
-          <h1 className="display-3">Here to do some text</h1>
-          <p className="lead text-muted">what about this system</p>
+          <h1 className="display-3">Welcome to anti-fraud system!</h1>
+          <p className="lead text-muted">Log in to system or create new user</p>
         </div>
         <div className="col-lg-5 pl-lg-5 pb-3 py-lg-5">
           <form onSubmit={handleSubmit}>
