@@ -29,6 +29,7 @@ function TransactionHistoryByCard() {
   function handleSubmit(e) {
     e.preventDefault()
     getListOfTransactions()
+    e.target.reset()
   }
 
   return (

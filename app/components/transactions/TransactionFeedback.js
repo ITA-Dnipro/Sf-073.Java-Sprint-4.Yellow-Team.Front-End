@@ -27,6 +27,7 @@ function TransactionFeedback() {
   function handleSubmit(e) {
     e.preventDefault()
     TransactionService.addFeedback(id, feedback)
+    e.target.reset()
   }
 
   return (
