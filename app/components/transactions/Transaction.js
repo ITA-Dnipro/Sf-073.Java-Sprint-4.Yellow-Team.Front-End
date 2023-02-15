@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, {useState} from "react";
 import TransactionService from "../../services/TransactionService";
-import { Link, Routes, Route, useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 function Transaction() {
   const [amount, setAmount] = useState();

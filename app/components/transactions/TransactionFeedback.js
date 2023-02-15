@@ -1,14 +1,10 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, {useState} from "react";
 import TransactionService from "../../services/TransactionService";
-import { Link, Routes, Route, useNavigate } from "react-router-dom";
 
 function TransactionFeedback() {
   const [id, setID] = useState();
-  const [feedback, setFeedback] = useState();
-
-  const navigate = useNavigate();
-
+  const [feedback, setFeedback] = useState("ALLOWED");
+  
   const feedbackStatus = [
     {
       label: "ALLOWED",
@@ -27,6 +23,7 @@ function TransactionFeedback() {
   function handleSubmit(e) {
     e.preventDefault();
     TransactionService.addFeedback(id, feedback);
+    e.target.reset();
   }
 
   return (

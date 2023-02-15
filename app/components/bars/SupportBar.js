@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Link , useNavigate } from "react-router-dom";
+import React, {Component} from "react";
+import {Link} from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Container from "react-bootstrap/Container";
@@ -26,6 +26,9 @@ export default class SupportBar extends Component {
             <nav>
               <div>
                 <ul className="header">
+                <li>
+                  <Link to="users">All users</Link>
+                </li>
                   <li>
                     <Navbar>
                       <Container>

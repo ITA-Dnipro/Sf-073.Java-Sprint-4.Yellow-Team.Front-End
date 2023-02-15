@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react"
-import axios from "axios"
-import TransactionFeedback from "./TransactionFeedback"
+import React, {useEffect, useState} from "react"
 
 function TransactionHistory() {
   const [listTransactions, setListTransactions] = useState()
@@ -54,7 +52,7 @@ function TransactionHistory() {
                   <td scope="row">{transaction.ip}</td>
                   <td scope="row">{transaction.number}</td>
                   <td scope="row">{transaction.region}</td>
-                  <td scope="row">{transaction.date}</td>
+                  <td scope="row">  {new Date(transaction.date).toUTCString()}</td>
                   <td scope="row">{transaction.result}</td>
                   <td scope="row">{transaction.feedback}</td>
                 </tr>

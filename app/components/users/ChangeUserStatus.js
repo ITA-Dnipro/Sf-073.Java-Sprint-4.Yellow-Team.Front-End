@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, {useEffect, useState} from "react"
 import axios from "axios"
 
 function ChangeUserStatus() {
@@ -49,7 +49,7 @@ function ChangeUserStatus() {
               <th scope="col">№</th>
               <th scope="col">USERNAME</th>
               <th scope="col">STATUS</th>
-              <th scope="col">ACTION</th>
+              <th scope="col"> &emsp; &nbsp;ACTION</th>
             </tr>
           </thead>
           <tbody>

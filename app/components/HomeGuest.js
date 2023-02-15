@@ -1,8 +1,8 @@
-import React, { useState } from "react"
+import React, {useState} from "react"
 import Page from "./Page"
 import RegisterService from "../services/RegisterService"
 
-import { Link, Routes, Route, useNavigate } from "react-router-dom"
+import {useNavigate} from "react-router-dom"
 
 function HomeGuest() {
   const [name, setName] = useState()

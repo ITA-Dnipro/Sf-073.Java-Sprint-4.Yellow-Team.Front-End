@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import axios from "axios";
 
 const DELETE_CARD_API = "http://localhost:28852/api/antifraud/stolencard/";

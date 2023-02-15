@@ -1,5 +1,4 @@
 import axios from "axios"
-import { Link, Routes, Route, useNavigate } from "react-router-dom"
 
 const REGISTER_REST_API_URL = "http://localhost:28852/api/auth"
 

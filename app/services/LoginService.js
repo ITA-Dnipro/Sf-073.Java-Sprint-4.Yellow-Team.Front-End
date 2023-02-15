@@ -1,5 +1,5 @@
 import axios from "axios"
-import { Buffer } from "buffer"
+import {Buffer} from "buffer"
 
 const LOGIN_REST_API_URL = "http://localhost:28852/api/auth"
 class LoginService {
@@ -15,7 +15,7 @@ class LoginService {
     })
     customAxios.interceptors.response.use(
       response => {
-        window.location.href = "/logged"
+        window.location.href = "/"
         localStorage.setItem("Authorization", `Basic ${base64encodedData}`)
         localStorage.setItem("username", response.data.username)
         localStorage.setItem("role", response.data.role)
@@ -27,16 +27,5 @@ class LoginService {
     )
     customAxios.post("login", username)
   }
-  //   const response = await axios.post(LOGIN_REST_API_URL, username, {
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Authorization: `Basic ${base64encodedData}`
-  //     }
-  //   })
-  //   localStorage.setItem("Authorization", `Basic ${base64encodedData}`)
-  //   localStorage.setItem("username", response.data.username)
-  //   localStorage.setItem("role", response.data.role)
-  //   window.location.href = "/logged"
-  // }
 }
 export default new LoginService()

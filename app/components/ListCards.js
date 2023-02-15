@@ -1,5 +1,4 @@
-import React, { Component } from "react"
-import { Buffer } from "buffer"
+import React, {Component} from "react"
 
 const LIST_CARDS_API = "http://localhost:28852/api/antifraud/stolencard"
 export default class ListCards extends Component {

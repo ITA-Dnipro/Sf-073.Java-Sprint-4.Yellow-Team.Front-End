@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, {useEffect, useState} from "react"
 import axios from "axios"
 
 function ListUsers() {
@@ -48,7 +48,7 @@ function ListUsers() {
               <th scope="col">NAME</th>
               <th scope="col">USERNAME</th>
               <th scope="col">ROLE</th>
-              <th scope="col">ACTION</th>
+              <th scope="col">&nbsp;&ensp; ACTION</th>
             </tr>
           </thead>
           <tbody>

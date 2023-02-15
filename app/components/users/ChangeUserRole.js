@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, {useEffect, useState} from "react"
 import axios from "axios"
 
 function ChangeUserRole() {
@@ -69,7 +69,7 @@ function ChangeUserRole() {
               <th scope="col">USERNAME</th>
               <th scope="col">ROLE</th>
               <th scope="col">SELECT ROLE</th>
-              <th scope="col">ACTION</th>
+              <th scope="col"> &emsp;ACTION</th>
             </tr>
           </thead>
           <tbody>

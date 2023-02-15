@@ -1,32 +1,32 @@
-import React from "react"
-import * as ReactDOM from "react-dom/client"
-import ListUsers from "./components/users/ListUsers"
-import SimpleLoginComponent from "./components/SimpleLoginComponent"
-import { NavLink, Routes, Route, BrowserRouter } from "react-router-dom"
-import HomeGuest from "./components/HomeGuest"
-import Header from "./components/Header"
-import Footer from "./components/Footer"
-import About from "./components/About"
-import PrivateRoutes from "./utils/PrivateRoutes"
-import ChangeUserStatus from "./components/users/ChangeUserStatus"
-import AdminBar from "./components/bars/AdminBar"
-import ChangeUserRole from "./components/users/ChangeUserRole"
-import SuspiciosIP from "./components/suspicious ips/AddSuspiciousIP"
-import ListSuspiciousIP from "./components/suspicious ips/ListSuspiciousIP"
-import DeleteIp from "./components/suspicious ips/DeleteIp"
-import AddCard from "./components/stolen cards/AddCard"
-import ListCards from "./components/stolen cards/ListCards"
-import DeleteCard from "./components/stolen cards/DeleteCard"
-import Transaction from "./components/transactions/Transaction"
-import TransactionFeedback from "./components/transactions/TransactionFeedback"
-import TransactionHistory from "./components/transactions/TransactionHistory"
-import TransactionHistoryByCard from "./components/transactions/TransactionHistoryByCard"
-import Unauthorized from "./components/Unauthorized"
-import DeleteUser from "./components/users/DeleteUser"
-import Home from "./components/Home"
+import React from "react";
+import * as ReactDOM from "react-dom/client";
+import ListUsers from "./components/users/ListUsers";
+import SimpleLoginComponent from "./components/SimpleLoginComponent";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import HomeGuest from "./components/HomeGuest";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import About from "./components/About";
+import PrivateRoutes from "./utils/PrivateRoutes";
+import ChangeUserStatus from "./components/users/ChangeUserStatus";
+import AdminBar from "./components/bars/AdminBar";
+import ChangeUserRole from "./components/users/ChangeUserRole";
+import SuspiciosIP from "./components/suspicious ips/AddSuspiciousIP";
+import ListSuspiciousIP from "./components/suspicious ips/ListSuspiciousIP";
+import DeleteIp from "./components/suspicious ips/DeleteIp";
+import AddCard from "./components/stolen cards/AddCard";
+import ListCards from "./components/stolen cards/ListCards";
+import DeleteCard from "./components/stolen cards/DeleteCard";
+import Transaction from "./components/transactions/Transaction";
+import TransactionFeedback from "./components/transactions/TransactionFeedback";
+import TransactionHistory from "./components/transactions/TransactionHistory";
+import TransactionHistoryByCard from "./components/transactions/TransactionHistoryByCard";
+import Unauthorized from "./components/Unauthorized";
+import DeleteUser from "./components/users/DeleteUser";
+import Home from "./components/Home";
 
 function ExampleComponent() {
-  let localStorageRole = localStorage.getItem("role")
+  let localStorageRole = localStorage.getItem("role");
   if (localStorageRole === null) {
     return (
       <>
@@ -39,7 +39,7 @@ function ExampleComponent() {
         </Routes>
         <Footer />
       </>
-    )
+    );
   } else {
     return (
       <>
@@ -68,26 +68,26 @@ function ExampleComponent() {
           <Route element={<PrivateRoutes role="MERCHANT" />}>
             <Route path="/transaction" element={<Transaction />}></Route>
           </Route>
-          <Route path="/" element={<HomeGuest />}></Route>
+          <Route path="/" element={<Home />}></Route>
           <Route path="/login" element={<SimpleLoginComponent />}></Route>
           <Route path="/logged" element={<Home />}></Route>
-          <Route path="about-us" element={<About />}></Route>
+          <Route path="/about-us" element={<About />}></Route>
           <Route path="/unauthorized" element={<Unauthorized />}></Route>
         </Routes>
         <Footer />
       </>
-    )
+    );
   }
 }
 
-const root = ReactDOM.createRoot(document.querySelector("#app"))
+const root = ReactDOM.createRoot(document.querySelector("#app"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <ExampleComponent />
     </BrowserRouter>
   </React.StrictMode>
-)
+);
 if (module.hot) {
-  module.hot.accept()
+  module.hot.accept();
 }

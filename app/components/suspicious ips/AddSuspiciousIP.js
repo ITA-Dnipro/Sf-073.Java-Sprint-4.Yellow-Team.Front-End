@@ -1,5 +1,6 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import axios from "axios";
+
 class AddSuspiciousIP extends Component {
   handleSubmit = (event) => {
     const base64encodedData = localStorage.getItem("Authorization");
