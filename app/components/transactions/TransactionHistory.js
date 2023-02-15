@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react"
+import React, { useEffect, useState } from "react"
 
 function TransactionHistory() {
   const [listTransactions, setListTransactions] = useState()
@@ -29,7 +29,7 @@ function TransactionHistory() {
   return (
     <div className="list-transactions">
       <div className="container">
-      <h4>TRANSACTION HISTORY</h4>
+        <h4>TRANSACTION HISTORY</h4>
         <table className="table border shadow">
           <thead>
             <tr>
@@ -52,7 +52,7 @@ function TransactionHistory() {
                   <td scope="row">{transaction.ip}</td>
                   <td scope="row">{transaction.number}</td>
                   <td scope="row">{transaction.region}</td>
-                  <td scope="row">  {new Date(transaction.date).toUTCString()}</td>
+                  <td scope="row"> {new Date(transaction.date).toUTCString()}</td>
                   <td scope="row">{transaction.result}</td>
                   <td scope="row">{transaction.feedback}</td>
                 </tr>
