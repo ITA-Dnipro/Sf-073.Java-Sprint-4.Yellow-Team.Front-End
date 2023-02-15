@@ -22,14 +22,16 @@ class AddSuspiciousIP extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          {" "}
-          Suspicious ip:
-          <input type="text" name="ip" onChange={this.handleChange} />
-        </label>
-        <button type="submit"> Add </button>
-      </form>
+      <div className="maincontainer">
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            {" "}
+            Suspicious ip:
+            <input type="text" name="ip" onChange={this.handleChange} />
+          </label>
+          <button type="submit"> Add </button>
+        </form>
+      </div>
     )
   }
 }

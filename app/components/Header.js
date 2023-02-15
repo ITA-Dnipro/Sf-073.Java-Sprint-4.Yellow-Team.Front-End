@@ -23,7 +23,12 @@ function Header(props) {
           <Link to="/" className="text-white">
             Anti fraud system
           </Link>
-          {localStorage.getItem("role") != null && <div>Current user: {localStorage.getItem("username")}!</div>}
+          {localStorage.getItem("role") != null && (
+            <div>
+              <br />
+              <h5>{localStorage.getItem("username")}</h5>
+            </div>
+          )}
         </h4>
         {localStorage.getItem("role") == null && <HeaderLogin />}
 
