@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react"
+import React, { useEffect, useState } from "react"
 import axios from "axios"
 
 function ListUsers() {
@@ -41,7 +41,7 @@ function ListUsers() {
   return (
     <div className="container">
       <div className="py-4">
-      <h4>USERS LIST</h4>
+        <h4>USERS LIST</h4>
         <table className="table border shadow">
           <thead>
             <tr>

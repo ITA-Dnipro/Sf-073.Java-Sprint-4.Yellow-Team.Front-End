@@ -1,4 +1,4 @@
-import React, {Component} from "react"
+import React, { Component } from "react"
 import axios from "axios"
 
 class DeleteIp extends Component {
@@ -34,7 +34,10 @@ class DeleteIp extends Component {
         <form onSubmit={this.handleSubmit}>
           <big>IP: </big>
           <input className="inputfield" type="text" name="ip" onChange={this.handleChange} />
-          <button type="submit" className="btn btn-danger btn-sm"> Delete </button>
+          <button type="submit" className="btn btn-danger btn-sm">
+            {" "}
+            Delete{" "}
+          </button>
         </form>
       </div>
     )

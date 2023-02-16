@@ -1,5 +1,5 @@
 import axios from "axios"
-import {Buffer} from "buffer"
+import { Buffer } from "buffer"
 
 const LOGIN_REST_API_URL = "http://localhost:28852/api/auth"
 class LoginService {

@@ -1,4 +1,4 @@
-import React, {Component} from "react"
+import React, { Component } from "react"
 
 import LoginService from "../services/LoginService"
 import Page from "./Page"

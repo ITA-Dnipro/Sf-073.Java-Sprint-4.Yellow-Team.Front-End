@@ -1,4 +1,4 @@
-import React, {Component} from "react"
+import React, { Component } from "react"
 import axios from "axios"
 
 const DELETE_USER_API = "http://localhost:28852/api/auth/user/"

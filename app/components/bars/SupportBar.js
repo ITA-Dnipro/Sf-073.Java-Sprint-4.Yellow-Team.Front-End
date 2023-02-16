@@ -1,21 +1,21 @@
-import React, {Component} from "react";
-import {Link} from "react-router-dom";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import Container from "react-bootstrap/Container";
+import React, { Component } from "react"
+import { Link } from "react-router-dom"
+import Navbar from "react-bootstrap/Navbar"
+import NavDropdown from "react-bootstrap/NavDropdown"
+import Container from "react-bootstrap/Container"
 
 export default class SupportBar extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       item: [],
-      dropdown: false,
-    };
+      dropdown: false
+    }
   }
 
   dropdown() {
-    this.state.dropdown = true;
-    console.log(this.state.dropdown);
+    this.state.dropdown = true
+    console.log(this.state.dropdown)
   }
 
   render() {
@@ -26,9 +26,9 @@ export default class SupportBar extends Component {
             <nav>
               <div>
                 <ul className="header">
-                <li>
-                  <Link to="users">All users</Link>
-                </li>
+                  <li>
+                    <Link to="users">All users</Link>
+                  </li>
                   <li>
                     <Navbar>
                       <Container>
@@ -76,13 +76,13 @@ export default class SupportBar extends Component {
                         <Navbar.Collapse>
                           <NavDropdown title="Transactions">
                             <NavDropdown.Item as={Link} to="/transaction-history" key="1">
-                            Transaction History
+                              Transaction History
                             </NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/transaction-history-by-card" key="2">
-                            Transaction History by card
+                              Transaction History by card
                             </NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/transaction-feedback" key="3">
-                            Transaction Feedback
+                              Transaction Feedback
                             </NavDropdown.Item>
                           </NavDropdown>
                         </Navbar.Collapse>
@@ -95,6 +95,6 @@ export default class SupportBar extends Component {
           </div>
         </nav>
       </>
-    );
+    )
   }
 }
